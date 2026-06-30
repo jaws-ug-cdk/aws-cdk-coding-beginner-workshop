@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>環境準備 on AWS CDK Coding Beginner Workshop</title><link>https://jaws-ug-cdk.github.io/aws-cdk-coding-beginner-workshop/20-getting-started/index.html</link><description>Recent content in 環境準備 on AWS CDK Coding Beginner Workshop</description><generator>Hugo</generator><language>ja</language><atom:link href="https://jaws-ug-cdk.github.io/aws-cdk-coding-beginner-workshop/20-getting-started/index.xml" rel="self" type="application/rss+xml"/><item><title>前提条件</title><link>https://jaws-ug-cdk.github.io/aws-cdk-coding-beginner-workshop/20-getting-started/100-prerequisites.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://jaws-ug-cdk.github.io/aws-cdk-coding-beginner-workshop/20-getting-started/100-prerequisites.html</guid><description>&lt;h2 id="このページについて"&gt;このページについて&lt;/h2&gt;
+&lt;p&gt;このページはサンプルです。ワークショップに必要な前提条件を列挙します。&lt;/p&gt;
+&lt;h2 id="必要なものサンプル"&gt;必要なもの（サンプル）&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;AWS アカウント&lt;/li&gt;
+&lt;li&gt;ターミナル操作の基本知識&lt;/li&gt;
+&lt;li&gt;任意のプログラミング言語の基礎&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="see-also"&gt;See Also&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://aws.amazon.com/jp/register-flow/"&gt;AWS アカウント作成&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description></item><item><title>ツールのインストール</title><link>https://jaws-ug-cdk.github.io/aws-cdk-coding-beginner-workshop/20-getting-started/200-install.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://jaws-ug-cdk.github.io/aws-cdk-coding-beginner-workshop/20-getting-started/200-install.html</guid><description>&lt;h2 id="このページについて"&gt;このページについて&lt;/h2&gt;
+&lt;p&gt;このページはサンプルです。CDK を動かすために必要なツールのインストール手順を書きます。&lt;/p&gt;
+&lt;h2 id="手順サンプル"&gt;手順（サンプル）&lt;/h2&gt;
+&lt;p&gt;コマンドはコードフェンスで囲みます。&lt;code&gt;monokai&lt;/code&gt; スタイルでシンタックスハイライトされます。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# TODO: 実際のインストールコマンドに置き換える&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;npm install -g aws-cdk
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;cdk --version
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;バージョン番号など、共有データを埋め込みたい場合はショートコードを使えます。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;例: &lt;code&gt;workshop/data/common.toml&lt;/code&gt; の値を表示する → CDK バージョン: 2.0.0 (build 4b6ce31)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class="notices note" &gt;&lt;p&gt;&lt;code&gt;{{&amp;lt; cdkversion &amp;gt;}}&lt;/code&gt; は &lt;code&gt;workshop/layouts/shortcodes/cdkversion.html&lt;/code&gt; で定義された
+カスタムショートコードのサンプルです。値は &lt;code&gt;workshop/data/common.toml&lt;/code&gt; で管理します。&lt;/p&gt;
+&lt;/div&gt;</description></item><item><title>CDK Bootstrap</title><link>https://jaws-ug-cdk.github.io/aws-cdk-coding-beginner-workshop/20-getting-started/300-bootstrap.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://jaws-ug-cdk.github.io/aws-cdk-coding-beginner-workshop/20-getting-started/300-bootstrap.html</guid><description>&lt;h2 id="このページについて"&gt;このページについて&lt;/h2&gt;
+&lt;p&gt;このページはサンプルです。&lt;code&gt;cdk bootstrap&lt;/code&gt; など、最初に一度だけ必要な準備手順を書きます。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# TODO: 実際の手順に置き換える&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;cdk bootstrap aws://&amp;lt;ACCOUNT-ID&amp;gt;/&amp;lt;REGION&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;これで環境準備は完了です。次の章で実際に CDK アプリを作成します。&lt;/p&gt;</description></item></channel></rss>

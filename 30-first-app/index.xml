@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>最初の CDK アプリ on AWS CDK Coding Beginner Workshop</title><link>https://jaws-ug-cdk.github.io/aws-cdk-coding-beginner-workshop/30-first-app/index.html</link><description>Recent content in 最初の CDK アプリ on AWS CDK Coding Beginner Workshop</description><generator>Hugo</generator><language>ja</language><atom:link href="https://jaws-ug-cdk.github.io/aws-cdk-coding-beginner-workshop/30-first-app/index.xml" rel="self" type="application/rss+xml"/><item><title>プロジェクトを作成する</title><link>https://jaws-ug-cdk.github.io/aws-cdk-coding-beginner-workshop/30-first-app/100-create-project.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://jaws-ug-cdk.github.io/aws-cdk-coding-beginner-workshop/30-first-app/100-create-project.html</guid><description>&lt;h2 id="このページについて"&gt;このページについて&lt;/h2&gt;
+&lt;p&gt;このページはサンプルです。新しい CDK プロジェクトの作成手順を書きます。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;mkdir cdk-workshop &lt;span style="color:#f92672"&gt;&amp;amp;&amp;amp;&lt;/span&gt; cd cdk-workshop
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# TODO: 採用する言語に合わせて --language を変更&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;cdk init sample-app --language typescript
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="プロジェクト構成サンプル"&gt;プロジェクト構成（サンプル）&lt;/h2&gt;
+&lt;p&gt;生成されたファイル構成の説明を、必要に応じて表や箇条書きで示します。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;bin/&lt;/code&gt; … アプリのエントリポイント&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;lib/&lt;/code&gt; … スタック定義&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;cdk.json&lt;/code&gt; … CDK Toolkit の設定&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;実際に動かすサンプルコードは、リポジトリの &lt;code&gt;code/&lt;/code&gt; ディレクトリに置きます
+（&lt;a href="https://github.com/jaws-ug-cdk/aws-cdk-coding-beginner-workshop/tree/main/code"&gt;code/README.md&lt;/a&gt; を参照）。&lt;/p&gt;</description></item><item><title>合成（synth）する</title><link>https://jaws-ug-cdk.github.io/aws-cdk-coding-beginner-workshop/30-first-app/200-synth.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://jaws-ug-cdk.github.io/aws-cdk-coding-beginner-workshop/30-first-app/200-synth.html</guid><description>&lt;h2 id="このページについて"&gt;このページについて&lt;/h2&gt;
+&lt;p&gt;このページはサンプルです。&lt;code&gt;cdk synth&lt;/code&gt; で CloudFormation テンプレートを生成する手順を書きます。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;cdk synth
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class="notices tip" &gt;&lt;p&gt;出力例やスクリーンショットを載せると分かりやすくなります。
+画像はこのページと同じ階層に置いて &lt;code&gt;![](スクショ.png)&lt;/code&gt; で参照します。&lt;/p&gt;
+&lt;/div&gt;</description></item><item><title>デプロイする</title><link>https://jaws-ug-cdk.github.io/aws-cdk-coding-beginner-workshop/30-first-app/300-deploy.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://jaws-ug-cdk.github.io/aws-cdk-coding-beginner-workshop/30-first-app/300-deploy.html</guid><description>&lt;h2 id="このページについて"&gt;このページについて&lt;/h2&gt;
+&lt;p&gt;このページはサンプルです。&lt;code&gt;cdk deploy&lt;/code&gt; で AWS にデプロイする手順を書きます。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;cdk deploy
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;デプロイが完了したら、マネジメントコンソールでリソースが作成されたことを確認します。&lt;/p&gt;
+&lt;p&gt;次の章では、このアプリにリソースを追加していきます。&lt;/p&gt;</description></item></channel></rss>

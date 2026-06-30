@@ -1,0 +1,24 @@
+name: build sample code
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  typescript:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v5
+      - uses: DeterminateSystems/nix-installer-action@main
+      - uses: nix-community/cache-nix-action@v6
+        with:
+          primary-key: nix-${{ runner.os }}-${{ hashFiles('flake.nix', 'flake.lock') }}
+          restore-prefixes-first-match: nix-${{ runner.os }}-
+
+      # TODO: サンプルが揃ったら有効化する（node は flake の nodejs_24 を使用）。
+      - name: Build TypeScript sample
+        run: |
+          echo "TODO: 下記を有効化する"
+          # nix develop --command bash -c "cd code/typescript/main-workshop && npm ci && npm run build && npx cdk synth"

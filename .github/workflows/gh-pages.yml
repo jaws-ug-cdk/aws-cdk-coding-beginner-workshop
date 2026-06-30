@@ -1,0 +1,34 @@
+# Reference: https://gohugo.io/hosting-and-deployment/hosting-on-github/
+name: github pages
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0 # .GitInfo / .Lastmod 用に全履歴を取得
+
+      - uses: DeterminateSystems/nix-installer-action@main
+
+      # /nix/store をキャッシュしてビルドを高速化
+      - uses: nix-community/cache-nix-action@v6
+        with:
+          primary-key: nix-${{ runner.os }}-${{ hashFiles('flake.nix', 'flake.lock') }}
+          restore-prefixes-first-match: nix-${{ runner.os }}-
+
+      - name: Build
+        run: nix develop --command hugo --source workshop --minify
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v4
+        if: github.ref == 'refs/heads/main'
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./workshop/public

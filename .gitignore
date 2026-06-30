@@ -1,0 +1,22 @@
+# Hugo
+workshop/public/
+workshop/resources/
+.hugo_build.lock
+
+# Node / CDK
+node_modules/
+cdk.out/
+*.d.ts
+# JS はソースとして扱わない（Lambda 等の生 JS は例外で許可）
+*.js
+!**/lambda/*.js
+!workshop/static/js/*
+
+# Nix / direnv
+.direnv/
+result
+result-*
+
+# OS / editor
+.DS_Store
+*~

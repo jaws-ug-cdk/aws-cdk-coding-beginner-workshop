@@ -1,0 +1,42 @@
+# Hugo 設定ファイル（テンプレート）
+# TODO: baseURL を実際の公開URL（GitHub Pages 等）に置き換える
+baseURL = "https://jaws-ug-cdk.github.io/aws-cdk-coding-beginner-workshop"
+languageCode = "ja"
+defaultContentLanguage = "ja"
+# TODO: ワークショップの正式名称に置き換える
+title = "AWS CDK Coding Beginner Workshop"
+theme = "learn"
+uglyurls = true
+googleAnalytics = ""
+sectionPagesMenu = "main"
+pygmentsCodeFences = true
+pygmentsStyle = "monokai"
+
+[params]
+themeVariant = "mine"
+showVisitedLinks = false
+# TODO: 著者名に置き換える
+author = "JAWS-UG CDK"
+description = "AWS CDK のコーディング初学者向けワークショップ"
+disableSearch = true
+disableAssetsBusting = true
+disableLanguageSwitchingButton = true
+disableShortcutsTitle = true
+
+# 画面右上のショートカットリンク（サンプル）。
+# TODO: このワークショップで案内したい外部リンクに置き換える。
+[[menu.shortcuts]]
+name = "<i class='fab fa-github fa-lg'></i> GitHub リポジトリ"
+identifier = "gh"
+url = "https://github.com/jaws-ug-cdk/aws-cdk-coding-beginner-workshop"
+weight = 1
+
+[[menu.shortcuts]]
+name = "<i class='fab fa-github fa-lg'></i> Issue / PR"
+identifier = "fb"
+url = "https://github.com/jaws-ug-cdk/aws-cdk-coding-beginner-workshop/issues"
+weight = 2
+
+[outputs]
+home = [ "HTML", "AMP", "RSS", "JSON"]
+page = [ "HTML", "AMP"]

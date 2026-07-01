@@ -5,10 +5,11 @@ weight = 100
 
 ## 手順
 
-`iac` ディレクトリで実行します。
+`iac` ディレクトリで、dev と prod それぞれ実行します。
 
 ```bash
-pnpm exec cdk destroy
+pnpm exec cdk destroy -c env=dev
+pnpm exec cdk destroy -c env=prod
 ```
 
 ## リソースが残ってしまった場合
@@ -16,5 +17,5 @@ pnpm exec cdk destroy
 `cdk destroy` で削除できないリソースが残ってしまった場合は、[delstack](https://github.com/go-to-k/delstack) というツールで強制的に削除できます。nixpkgs には無いため、GitHub Releases からバイナリを取得してください。
 
 ```bash
-delstack -s IacStack
+delstack -s IacStack-dev -s IacStack-prod
 ```

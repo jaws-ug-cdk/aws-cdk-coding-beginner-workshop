@@ -46,3 +46,16 @@ export class IacStack extends cdk.Stack {
   }
 }
 ```
+
+## エントリポイントを実装する
+
+`iac/bin/iac.ts` を、以下の内容で**全体を置き換えます**。スタック名に `dev` を含めておきます。
+
+```typescript
+#!/usr/bin/env node
+import * as cdk from 'aws-cdk-lib/core';
+import { IacStack } from '../lib/iac-stack';
+
+const app = new cdk.App();
+new IacStack(app, 'IacStack-dev');
+```

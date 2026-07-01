@@ -41,8 +41,10 @@ const app = new cdk.App();
 const env: string = app.node.tryGetContext('env') ?? 'dev';
 const config = getConfig(env);
 
-new IacStack(app, 'IacStack', { config });
+new IacStack(app, `IacStack-${env}`, { config });
 ```
+
+スタック名は、これまでの `IacStack-dev` と同じ文字列になるように組み立てています。
 
 ## スタックを実装する
 

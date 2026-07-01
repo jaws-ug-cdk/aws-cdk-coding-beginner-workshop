@@ -1,2 +1,7 @@
-[cdk]
-version = "2.0.0 (build 4b6ce31)"
+# TODO: このワークショップのリポジトリ名に置き換える
+[repo]
+name = "aws-cdk-coding-beginner-workshop"
+
+# TODO: 参加者に複製させるテンプレートリポジトリに置き換える
+[template]
+repo = "jaws-ug-cdk/cdk-workshop-template"

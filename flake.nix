@@ -1,4 +1,5 @@
 {
+  # TODO: ワークショップ名に置き換える
   description = "AWS CDK Coding Beginner Workshop - dev environment";
 
   inputs = {
@@ -20,6 +21,7 @@
           ];
 
           shellHook = ''
+            # TODO: ワークショップ名に置き換える
             echo "AWS CDK Coding Beginner Workshop dev shell"
             echo "  hugo : $(hugo version | head -n1)"
             echo "  node : $(node --version)"

@@ -1,3 +1,4 @@
+<!-- TODO: ワークショップのタイトル・説明文に置き換える -->
 # AWS CDK Coding Beginner Workshop
 
 AWS CDKを初めて学ぶ人向けのワークショップリポジトリです。

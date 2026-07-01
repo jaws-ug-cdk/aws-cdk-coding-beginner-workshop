@@ -5,23 +5,32 @@ weight = 200
 
 ## このページについて
 
-このページはサンプルです。CDK を動かすために必要なツールのインストール手順を書きます。
+このハンズオンでは [GitHub Codespaces](https://github.co.jp/features/codespaces) を使って進めます！
 
-## 手順（サンプル）
+## 手順
 
-コマンドはコードフェンスで囲みます。`monokai` スタイルでシンタックスハイライトされます。
+### 1. リポジトリを作成する
 
-```bash
-# TODO: 実際のインストールコマンドに置き換える
-npm install -g aws-cdk
-cdk --version
-```
+以下のリンクをクリックして、新しいGitHubリポジトリを作成します。
 
-バージョン番号など、共有データを埋め込みたい場合はショートコードを使えます。
+[https://github.com/codespaces/new?template_repository={{< templaterepo >}}](https://github.com/codespaces/new?template_repository={{< templaterepo >}})
 
-- 例: `workshop/data/common.toml` の値を表示する → CDK バージョン: {{< cdkversion >}}
+リポジトリ名は`{{< reponame >}}-yyyymmdd`を入力して`Create repository`ボタンを押してリポジトリを作成します。
 
 {{% notice note %}}
-`{{</* cdkversion */>}}` は `workshop/layouts/shortcodes/cdkversion.html` で定義された
-カスタムショートコードのサンプルです。値は `workshop/data/common.toml` で管理します。
+`yyyymmdd`の部分は今日の日付に置き換えてください（例: 2026年7月2日なら`20260702`）。
 {{% /notice %}}
+
+
+![create repository](./path)
+### 2. GitHub Codespacesを起動する
+
+`Code`ボタンから`Codespaces`タブを開き、`Create codespace on main`ボタンを押します。
+
+![create codespaces](./path)
+
+すると画面が遷移してCodespacesが作成されるのでしばらく待ちます。
+
+このような画面になったら起動完了です！
+
+![started codespaces](./path)

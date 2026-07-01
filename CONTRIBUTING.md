@@ -5,7 +5,7 @@
 
 ## バグ報告 / 機能要望
 
-GitHub の Issue トラッカーをご利用ください。報告の際は、[既存の Issue](https://github.com/jaws-ug-cdk/aws-cdk-coding-beginner-workshop/issues)
+GitHub の Issue トラッカーをご利用ください。報告の際は、<!-- TODO: このワークショップのリポジトリの Issue URL に置き換える -->[既存の Issue](https://github.com/jaws-ug-cdk/aws-cdk-coding-beginner-workshop/issues)
 に同じ内容がないかご確認ください。再現手順・環境・期待する挙動などを添えていただけると助かります。
 
 ## Pull Request

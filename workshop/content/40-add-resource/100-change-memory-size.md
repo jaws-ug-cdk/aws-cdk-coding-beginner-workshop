@@ -26,11 +26,16 @@ export class IacStack extends cdk.Stack {
 }
 ```
 
-## 差分を確認してデプロイする
+## 差分を確認する
 
 `iac` ディレクトリで実行します。
 
 ```bash
 pnpm exec cdk diff
+```
+
+## デプロイする
+
+```bash
 pnpm exec cdk deploy
 ```

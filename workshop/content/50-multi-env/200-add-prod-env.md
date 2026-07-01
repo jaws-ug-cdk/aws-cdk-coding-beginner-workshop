@@ -30,9 +30,14 @@ export const getConfig = (env: string): EnvConfig => {
 };
 ```
 
-## 合成してデプロイする
+## 合成する
 
 ```bash
 pnpm exec cdk synth -c env=prod
+```
+
+## デプロイする
+
+```bash
 pnpm exec cdk deploy -c env=prod
 ```

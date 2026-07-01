@@ -42,9 +42,14 @@ export class IacStack extends cdk.Stack {
 従来の `table.grantReadWriteData()` の後継として使います。
 {{% /notice %}}
 
-## 差分を確認してデプロイする
+## 差分を確認する
 
 ```bash
 pnpm exec cdk diff
+```
+
+## デプロイする
+
+```bash
 pnpm exec cdk deploy
 ```

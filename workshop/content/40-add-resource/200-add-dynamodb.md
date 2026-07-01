@@ -77,10 +77,15 @@ Lambda 関数の論理ID（コンストラクトID）を `HelloFunction` から 
 これにより、既存の Lambda 関数は削除され、新しい Lambda 関数が作成されます（置き換え）。
 {{% /notice %}}
 
-## 差分を確認してデプロイする
+## 差分を確認する
 
 ```bash
 pnpm exec cdk diff
+```
+
+## デプロイする
+
+```bash
 pnpm exec cdk deploy
 ```
 

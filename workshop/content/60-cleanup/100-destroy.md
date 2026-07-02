@@ -12,10 +12,8 @@ pnpm exec cdk destroy -c env=dev
 pnpm exec cdk destroy -c env=prod
 ```
 
-## リソースが残ってしまった場合
+それぞれ、削除してよいか確認されるので`y`を入力します。
 
-`cdk destroy` で削除できないリソースが残ってしまった場合は、[delstack](https://github.com/go-to-k/delstack) というツールで強制的に削除できます。nixpkgs には無いため、GitHub Releases からバイナリを取得してください。
-
-```bash
-delstack -s IacStack-dev -s IacStack-prod
+```
+Are you sure you want to delete: IacStack-dev (y/n)? y
 ```

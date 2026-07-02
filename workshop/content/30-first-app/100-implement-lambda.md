@@ -1,20 +1,17 @@
 +++
 title = "Lambda関数を実装する"
-weight = 200
+weight = 100
 +++
-
-## パッケージを追加する
-
-`iac` ディレクトリで、Lambda 関数をバンドルするために esbuild を追加します。
-
-```bash
-pnpm add -D esbuild
-pnpm approve-builds --all
-```
 
 ## Lambda関数を実装する
 
-`iac/lambda/hello.ts` を新規作成し、以下の内容にします。
+`iac/lambda/hello.ts` を開きます。
+
+```bash
+code "$(git rev-parse --show-toplevel)/iac/lambda/hello.ts"
+```
+
+以下の内容に書き換えます。
 
 ```typescript
 export const handler = async (): Promise<{ statusCode: number; body: string }> => {
@@ -25,9 +22,17 @@ export const handler = async (): Promise<{ statusCode: number; body: string }> =
 };
 ```
 
+<!-- TODO: Constructとは何か、scope(this)/id/propsの考え方、NodejsFunctionのentry/handlerの意味を説明する -->
+
 ## スタックを実装する
 
-`iac/lib/iac-stack.ts` を、以下の内容で**全体を置き換えます**。
+`iac/lib/iac-stack.ts` を開きます。
+
+```bash
+code "$(git rev-parse --show-toplevel)/iac/lib/iac-stack.ts"
+```
+
+以下の内容に**全体を書き換えます**。
 
 ```typescript
 import * as cdk from 'aws-cdk-lib/core';
@@ -39,7 +44,7 @@ export class IacStack extends cdk.Stack {
   constructor(scope: Construct, id: string, props?: cdk.StackProps) {
     super(scope, id, props);
 
-    new NodejsFunction(this, 'HelloFunction', {
+    new NodejsFunction(this, 'Function', {
       entry: path.join(__dirname, '..', 'lambda', 'hello.ts'),
       handler: 'handler',
     });
@@ -47,9 +52,17 @@ export class IacStack extends cdk.Stack {
 }
 ```
 
+<!-- TODO: App/Stackとは何か、スタックがCloudFormationのデプロイ単位であることを説明する -->
+
 ## エントリポイントを実装する
 
-`iac/bin/iac.ts` を、以下の内容で**全体を置き換えます**。スタック名に `dev` を含めておきます。
+`iac/bin/iac.ts` を開きます。
+
+```bash
+code "$(git rev-parse --show-toplevel)/iac/bin/iac.ts"
+```
+
+以下の内容に**全体を書き換えます**。スタック名に `dev` を含めておきます。
 
 ```typescript
 #!/usr/bin/env node
@@ -57,5 +70,7 @@ import * as cdk from 'aws-cdk-lib/core';
 import { IacStack } from '../lib/iac-stack';
 
 const app = new cdk.App();
+cdk.RemovalPolicies.of(app).destroy();
+
 new IacStack(app, 'IacStack-dev');
 ```

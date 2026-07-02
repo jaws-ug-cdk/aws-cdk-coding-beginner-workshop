@@ -7,6 +7,7 @@ weight = 100
 
 - GitHub アカウント（GitHub Codespaces を利用します）
 - AWS アカウント（マネジメントコンソールにサインインできること）
+  - IAMロール・Lambda・DynamoDBなどを作成するため、`AdministratorAccess`相当の権限が必要です
 
 ## See Also
 

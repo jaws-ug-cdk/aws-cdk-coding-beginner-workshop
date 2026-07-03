@@ -13,7 +13,7 @@ code "$(git rev-parse --show-toplevel)/iac/lib/config.ts"
 
 以下の内容に**全体を書き換えます**。
 
-```typescript
+```typescript {hl_lines=["9-11"]}
 export interface EnvConfig {
   readonly memorySize: number;
 }

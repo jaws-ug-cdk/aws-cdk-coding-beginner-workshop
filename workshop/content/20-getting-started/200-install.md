@@ -15,6 +15,10 @@ weight = 200
 
 [https://github.com/codespaces/new?template_repository={{< templaterepo >}}](https://github.com/codespaces/new?template_repository={{< templaterepo >}})
 
+{{% notice warning %}}
+「Resume codespace」というタイトルの画面が表示され、下部に`Create a new one`と`Resume`という2つのボタンが並んでいることがあります。その場合は`Create a new one`を選んでください。
+{{% /notice %}}
+
 以下を設定して`Create repository`ボタンを押してリポジトリを作成します。
 
 - リポジトリ名: `{{< reponame >}}-yyyymmdd`

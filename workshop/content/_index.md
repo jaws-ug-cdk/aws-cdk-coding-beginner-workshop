@@ -8,6 +8,11 @@ weight: 1
 
 AWS CDK を初めて学ぶ人向けのハンズオンです。Lambda 関数と DynamoDB テーブルを持つ CDK アプリを作りながら、複数環境（dev / prod）へのデプロイまで一通り体験します。
 
+## 必要なもの
+
+- GitHub アカウント
+- AWS アカウント（`AdministratorAccess`相当の権限が必要です）
+
 {{% notice tip %}}
 手順の途中で何か詰まったら、付録の[トラブルシューティング]({{< ref "/95-troubleshooting" >}})を確認してください。
 {{% /notice %}}

@@ -45,7 +45,7 @@ code "$(git rev-parse --show-toplevel)/iac/bin/iac.ts"
 
 以下の内容に**全体を書き換えます**。
 
-```typescript
+```typescript {hl_lines=["4","9-10","12"]}
 #!/usr/bin/env node
 import * as cdk from 'aws-cdk-lib/core';
 import { IacStack } from '../lib/iac-stack';
@@ -72,7 +72,7 @@ code "$(git rev-parse --show-toplevel)/iac/lib/iac-stack.ts"
 
 以下の内容に**全体を書き換えます**。
 
-```typescript
+```typescript {hl_lines=["6","8-10","13","24"]}
 import * as cdk from 'aws-cdk-lib/core';
 import { Construct } from 'constructs';
 import { NodejsFunction } from 'aws-cdk-lib/aws-lambda-nodejs';

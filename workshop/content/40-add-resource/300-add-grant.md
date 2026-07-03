@@ -13,7 +13,7 @@ code "$(git rev-parse --show-toplevel)/iac/lib/iac-stack.ts"
 
 以下の内容に**全体を書き換えます**。
 
-```typescript
+```typescript {hl_lines=["16","25"]}
 import * as cdk from 'aws-cdk-lib/core';
 import { Construct } from 'constructs';
 import { NodejsFunction } from 'aws-cdk-lib/aws-lambda-nodejs';

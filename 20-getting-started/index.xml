@@ -21,6 +21,10 @@
 &lt;h3 id="1-リポジトリを作成する"&gt;1. リポジトリを作成する&lt;/h3&gt;
 &lt;p&gt;以下のリンクをクリックして、新しいGitHubリポジトリを作成します。&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://github.com/codespaces/new?template_repository=jaws-ug-cdk/cdk-workshop-template"&gt;https://github.com/codespaces/new?template_repository=jaws-ug-cdk/cdk-workshop-template&lt;/a&gt;&lt;/p&gt;
+
+&lt;div class="notices warning" &gt;&lt;p&gt;「Resume codespace」というタイトルの画面が表示され、下部に&lt;code&gt;Create a new one&lt;/code&gt;と&lt;code&gt;Resume&lt;/code&gt;という2つのボタンが並んでいることがあります。その場合は&lt;code&gt;Create a new one&lt;/code&gt;を選んでください。&lt;/p&gt;
+&lt;/div&gt;
+
 &lt;p&gt;以下を設定して&lt;code&gt;Create repository&lt;/code&gt;ボタンを押してリポジトリを作成します。&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;リポジトリ名: &lt;code&gt;aws-cdk-coding-beginner-workshop-yyyymmdd&lt;/code&gt;&lt;/li&gt;

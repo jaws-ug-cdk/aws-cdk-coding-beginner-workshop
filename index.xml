@@ -1,15 +1,29 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>AWS CDK Coding Beginner Workshop</title><link>https://jaws-ug-cdk.github.io/aws-cdk-coding-beginner-workshop/index.html</link><description>Recent content on AWS CDK Coding Beginner Workshop</description><generator>Hugo</generator><language>ja</language><atom:link href="https://jaws-ug-cdk.github.io/aws-cdk-coding-beginner-workshop/index.xml" rel="self" type="application/rss+xml"/><item><title>aws・cdk・pnpmコマンドを実行したら「command not found」エラーになる</title><link>https://jaws-ug-cdk.github.io/aws-cdk-coding-beginner-workshop/95-troubleshooting/100-nix-daemon.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://jaws-ug-cdk.github.io/aws-cdk-coding-beginner-workshop/95-troubleshooting/100-nix-daemon.html</guid><description>&lt;h2 id="症状"&gt;症状&lt;/h2&gt;
-&lt;p&gt;Codespacesは一定時間操作がないと自動的に停止します。再接続後、以下のように &lt;code&gt;aws&lt;/code&gt;・&lt;code&gt;cdk&lt;/code&gt;・&lt;code&gt;pnpm&lt;/code&gt; などのコマンドが「存在しない」ように見えることがあります。&lt;/p&gt;
-&lt;pre tabindex="0"&gt;&lt;code&gt;$ pnpm exec cdk diff
-command not found: pnpm
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>AWS CDK Coding Beginner Workshop</title><link>https://jaws-ug-cdk.github.io/aws-cdk-coding-beginner-workshop/index.html</link><description>Recent content on AWS CDK Coding Beginner Workshop</description><generator>Hugo</generator><language>ja</language><atom:link href="https://jaws-ug-cdk.github.io/aws-cdk-coding-beginner-workshop/index.xml" rel="self" type="application/rss+xml"/><item><title>「Unable to resolve AWS account」エラー</title><link>https://jaws-ug-cdk.github.io/aws-cdk-coding-beginner-workshop/95-troubleshooting/100-aws-session.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://jaws-ug-cdk.github.io/aws-cdk-coding-beginner-workshop/95-troubleshooting/100-aws-session.html</guid><description>&lt;h2 id="症状"&gt;症状&lt;/h2&gt;
+&lt;p&gt;しばらく操作せずにいると、AWSへのログインセッションが切れることがあります。その状態で &lt;code&gt;cdk diff&lt;/code&gt; や &lt;code&gt;cdk deploy&lt;/code&gt; を実行すると、以下のようなエラーになります。&lt;/p&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;Unable to resolve AWS account to use. It must be either configured when you define your CDK Stack, or through the environment
 &lt;/code&gt;&lt;/pre&gt;&lt;h2 id="対処法"&gt;対処法&lt;/h2&gt;
-&lt;p&gt;以下のコマンドを順番に実行してください。&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo bash -c &lt;span style="color:#e6db74"&gt;&amp;#39;setsid nohup /nix/var/nix/profiles/default/bin/nix-daemon &amp;gt;/var/log/nix-daemon.log 2&amp;gt;&amp;amp;1 &amp;lt; /dev/null &amp;amp;&amp;#39;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;direnv reload
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;これでコマンドが使えるようになります。&lt;/p&gt;</description></item><item><title>Lambda関数を実装する</title><link>https://jaws-ug-cdk.github.io/aws-cdk-coding-beginner-workshop/30-first-app/100-implement-lambda.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://jaws-ug-cdk.github.io/aws-cdk-coding-beginner-workshop/30-first-app/100-implement-lambda.html</guid><description>&lt;h2 id="lambda関数を実装する"&gt;Lambda関数を実装する&lt;/h2&gt;
-&lt;p&gt;&lt;code&gt;iac/lambda/hello.ts&lt;/code&gt; を開きます。&lt;/p&gt;
+&lt;p&gt;以下のコマンドを実行して、再度ログインします。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;aws login --remote
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;あとは&lt;a href="https://jaws-ug-cdk.github.io/aws-cdk-coding-beginner-workshop/20-getting-started/100-aws-login.html"&gt;AWSにログインする&lt;/a&gt;
+の手順と同じです。&lt;/p&gt;</description></item><item><title>AWSにログインする</title><link>https://jaws-ug-cdk.github.io/aws-cdk-coding-beginner-workshop/20-getting-started/100-aws-login.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://jaws-ug-cdk.github.io/aws-cdk-coding-beginner-workshop/20-getting-started/100-aws-login.html</guid><description>&lt;h2 id="手順"&gt;手順&lt;/h2&gt;
+&lt;p&gt;ブラウザからAWSアカウントにサインインします。&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://console.aws.amazon.com/" target="_blank" rel="noopener noreferrer"&gt;https://console.aws.amazon.com/&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;画面右上のリージョンが「東京」（&lt;code&gt;ap-northeast-1&lt;/code&gt;）になっていることを確認します。違うリージョンになっている場合は、リージョンの一覧から「東京」を選択してください。&lt;/p&gt;
+&lt;p&gt;&lt;img src="../images/20-getting-started/select-region.png" alt="select region"&gt;&lt;/p&gt;
+&lt;p&gt;続いて、GitHub Codespacesのターミナルで以下のコマンドを実行します。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;aws login --remote
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class="notices note" &gt;&lt;p&gt;ターミナルに初めて貼り付けする際、ブラウザからクリップボードへのアクセス許可を求められることがあります。その場合は&lt;code&gt;Allow&lt;/code&gt;を押してください。&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;p&gt;リージョンを聞かれたら&lt;code&gt;ap-northeast-1&lt;/code&gt;を入力します。&lt;/p&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;AWS Region [us-east-1]: ap-northeast-1
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;ターミナルにURLが表示されるので、コピーしてブラウザに貼り付けて開きます。&lt;/p&gt;
+&lt;p&gt;ブラウザに表示された&lt;code&gt;検証コードをコピー&lt;/code&gt;ボタンでコードをコピーし、ターミナルに貼り付けてログインを完了します。&lt;/p&gt;</description></item><item><title>Lambda関数を実装する</title><link>https://jaws-ug-cdk.github.io/aws-cdk-coding-beginner-workshop/30-first-app/100-implement-lambda.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://jaws-ug-cdk.github.io/aws-cdk-coding-beginner-workshop/30-first-app/100-implement-lambda.html</guid><description>&lt;h2 id="lambda関数を実装する"&gt;Lambda関数を実装する&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;iac/lambda/hello.ts&lt;/code&gt; を開きます。GitHub Codespacesのターミナルで次のコマンドを実行します。&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;code &lt;span style="color:#e6db74"&gt;&amp;#34;&lt;/span&gt;&lt;span style="color:#66d9ef"&gt;$(&lt;/span&gt;git rev-parse --show-toplevel&lt;span style="color:#66d9ef"&gt;)&lt;/span&gt;&lt;span style="color:#e6db74"&gt;/iac/lambda/hello.ts&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;以下の内容に書き換えます。&lt;/p&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;開いたファイルを以下の内容に書き換えます。&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-typescript" data-lang="typescript"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;export&lt;/span&gt; &lt;span style="color:#66d9ef"&gt;const&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;handler&lt;/span&gt; &lt;span style="color:#f92672"&gt;=&lt;/span&gt; &lt;span style="color:#66d9ef"&gt;async&lt;/span&gt; ()&lt;span style="color:#f92672"&gt;:&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;Promise&lt;/span&gt;&lt;span style="color:#f92672"&gt;&amp;lt;&lt;/span&gt;{ &lt;span style="color:#a6e22e"&gt;statusCode&lt;/span&gt;: &lt;span style="color:#66d9ef"&gt;number&lt;/span&gt;; &lt;span style="color:#a6e22e"&gt;body&lt;/span&gt;: &lt;span style="color:#66d9ef"&gt;string&lt;/span&gt; }&lt;span style="color:#f92672"&gt;&amp;gt;&lt;/span&gt; &lt;span style="color:#f92672"&gt;=&amp;gt;&lt;/span&gt; {
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;return&lt;/span&gt; {
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#a6e22e"&gt;statusCode&lt;/span&gt;: &lt;span style="color:#66d9ef"&gt;200&lt;/span&gt;,
@@ -17,9 +31,9 @@ command not found: pnpm
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; };
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;};
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="スタックを実装する"&gt;スタックを実装する&lt;/h2&gt;
-&lt;p&gt;&lt;code&gt;iac/lib/iac-stack.ts&lt;/code&gt; を開きます。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;iac/lib/iac-stack.ts&lt;/code&gt; を開きます。ターミナルで次のコマンドを実行します。&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;code &lt;span style="color:#e6db74"&gt;&amp;#34;&lt;/span&gt;&lt;span style="color:#66d9ef"&gt;$(&lt;/span&gt;git rev-parse --show-toplevel&lt;span style="color:#66d9ef"&gt;)&lt;/span&gt;&lt;span style="color:#e6db74"&gt;/iac/lib/iac-stack.ts&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;以下の内容に&lt;strong&gt;全体を書き換えます&lt;/strong&gt;。&lt;/p&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;開いたファイルを以下の内容に書き換えます。&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-typescript" data-lang="typescript"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;import&lt;/span&gt; &lt;span style="color:#f92672"&gt;*&lt;/span&gt; &lt;span style="color:#66d9ef"&gt;as&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;cdk&lt;/span&gt; &lt;span style="color:#66d9ef"&gt;from&lt;/span&gt; &lt;span style="color:#e6db74"&gt;&amp;#39;aws-cdk-lib/core&amp;#39;&lt;/span&gt;;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;import&lt;/span&gt; { &lt;span style="color:#a6e22e"&gt;Construct&lt;/span&gt; } &lt;span style="color:#66d9ef"&gt;from&lt;/span&gt; &lt;span style="color:#e6db74"&gt;&amp;#39;constructs&amp;#39;&lt;/span&gt;;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;import&lt;/span&gt; { &lt;span style="color:#a6e22e"&gt;NodejsFunction&lt;/span&gt; } &lt;span style="color:#66d9ef"&gt;from&lt;/span&gt; &lt;span style="color:#e6db74"&gt;&amp;#39;aws-cdk-lib/aws-lambda-nodejs&amp;#39;&lt;/span&gt;;
@@ -36,9 +50,9 @@ command not found: pnpm
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; }
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;}
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="エントリポイントを実装する"&gt;エントリポイントを実装する&lt;/h2&gt;
-&lt;p&gt;&lt;code&gt;iac/bin/iac.ts&lt;/code&gt; を開きます。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;iac/bin/iac.ts&lt;/code&gt; を開きますターミナルで次のコマンドを実行します。&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;code &lt;span style="color:#e6db74"&gt;&amp;#34;&lt;/span&gt;&lt;span style="color:#66d9ef"&gt;$(&lt;/span&gt;git rev-parse --show-toplevel&lt;span style="color:#66d9ef"&gt;)&lt;/span&gt;&lt;span style="color:#e6db74"&gt;/iac/bin/iac.ts&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;以下の内容に&lt;strong&gt;全体を書き換えます&lt;/strong&gt;。スタック名に &lt;code&gt;dev&lt;/code&gt; を含めておきます。&lt;/p&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;開いたファイルを以下の内容に書き換えます。&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-typescript" data-lang="typescript"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#960050;background-color:#1e0010"&gt;#&lt;/span&gt;&lt;span style="color:#f92672"&gt;!&lt;/span&gt;&lt;span style="color:#960050;background-color:#1e0010"&gt;/usr/bin/env node&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;import&lt;/span&gt; &lt;span style="color:#f92672"&gt;*&lt;/span&gt; &lt;span style="color:#66d9ef"&gt;as&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;cdk&lt;/span&gt; &lt;span style="color:#66d9ef"&gt;from&lt;/span&gt; &lt;span style="color:#e6db74"&gt;&amp;#39;aws-cdk-lib/core&amp;#39;&lt;/span&gt;;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;import&lt;/span&gt; { &lt;span style="color:#a6e22e"&gt;IacStack&lt;/span&gt; } &lt;span style="color:#66d9ef"&gt;from&lt;/span&gt; &lt;span style="color:#e6db74"&gt;&amp;#39;../lib/iac-stack&amp;#39;&lt;/span&gt;;
@@ -53,8 +67,39 @@ command not found: pnpm
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;pnpm exec cdk destroy -c env&lt;span style="color:#f92672"&gt;=&lt;/span&gt;prod
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;それぞれ、削除してよいか確認されるので&lt;code&gt;y&lt;/code&gt;を入力します。&lt;/p&gt;
 &lt;pre tabindex="0"&gt;&lt;code&gt;Are you sure you want to delete: IacStack-dev (y/n)? y
-&lt;/code&gt;&lt;/pre&gt;</description></item><item><title>プロパティを変更する</title><link>https://jaws-ug-cdk.github.io/aws-cdk-coding-beginner-workshop/40-add-resource/100-change-memory-size.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://jaws-ug-cdk.github.io/aws-cdk-coding-beginner-workshop/40-add-resource/100-change-memory-size.html</guid><description>&lt;h2 id="スタックを実装する"&gt;スタックを実装する&lt;/h2&gt;
-&lt;p&gt;&lt;code&gt;iac/lib/iac-stack.ts&lt;/code&gt; を開きます。&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id="確認"&gt;確認&lt;/h2&gt;
+&lt;p&gt;AWS マネジメントコンソールの画面上部の検索窓に&lt;code&gt;CloudFormation&lt;/code&gt;と入力し、表示された&lt;code&gt;CloudFormation&lt;/code&gt;を選択します。&lt;/p&gt;
+&lt;p&gt;&lt;img src="../images/20-getting-started/search-cloudformation.png" alt="search CloudFormation"&gt;&lt;/p&gt;
+&lt;p&gt;スタックの一覧に&lt;code&gt;CDKToolkit&lt;/code&gt;以外のスタックが存在しないことを確認します。&lt;code&gt;IacStack-dev&lt;/code&gt;・&lt;code&gt;IacStack-prod&lt;/code&gt;が表示されていなければ、削除は完了です。&lt;/p&gt;
+&lt;p&gt;&lt;img src="../images/60-cleanup/stacks-list.png" alt="stacks list"&gt;&lt;/p&gt;</description></item><item><title>はじめる前に</title><link>https://jaws-ug-cdk.github.io/aws-cdk-coding-beginner-workshop/10-introduction/100-before-you-start.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://jaws-ug-cdk.github.io/aws-cdk-coding-beginner-workshop/10-introduction/100-before-you-start.html</guid><description>&lt;h2 id="手順"&gt;手順&lt;/h2&gt;
+&lt;p&gt;このワークショップでは &lt;a href="https://github.co.jp/features/codespaces" target="_blank" rel="noopener noreferrer"&gt;GitHub Codespaces&lt;/a&gt;
+ を使って進めます。起動に数分かかるため、最初に立ち上げておきましょう。&lt;/p&gt;
+&lt;h3 id="1-リポジトリを作成する"&gt;1. リポジトリを作成する&lt;/h3&gt;
+&lt;p&gt;以下のリンクをクリックして、新しいGitHubリポジトリを作成します。
+&lt;a href="https://github.com/new?template_name=cdk-workshop-template&amp;amp;template_owner=jaws-ug-cdk" target="_blank" rel="noopener noreferrer"&gt;https://github.com/new?template_name=cdk-workshop-template&amp;amp;template_owner=jaws-ug-cdk&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;以下を設定して&lt;code&gt;Create repository&lt;/code&gt;ボタンを押してリポジトリを作成します。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;リポジトリ名: &lt;code&gt;aws-cdk-coding-beginner-workshop-yyyymmdd&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;公開設定: &lt;code&gt;Private&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class="notices note" &gt;&lt;p&gt;&lt;code&gt;yyyymmdd&lt;/code&gt;の部分は今日の日付に置き換えてください（例: 2026年7月2日なら&lt;code&gt;20260702&lt;/code&gt;）。何度もこのワークショップに参加してリポジトリを作り直しても、日付が違えば名前が重複しません。&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;img src="../images/20-getting-started/create-repository.png" alt="create repository"&gt;&lt;/p&gt;
+&lt;h3 id="2-github-codespacesを起動する"&gt;2. GitHub Codespacesを起動する&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;Code&lt;/code&gt;ボタンから&lt;code&gt;Codespaces&lt;/code&gt;タブを開き、&lt;code&gt;Create codespace on main&lt;/code&gt;ボタンを押します。&lt;/p&gt;
+&lt;p&gt;&lt;img src="../images/20-getting-started/create-codespaces.png" alt="create codespaces"&gt;&lt;/p&gt;
+&lt;p&gt;画面が遷移してCodespacesが作成されます。起動を待っている間に、次のページを読み進めてください。&lt;/p&gt;
+&lt;p&gt;このような画面になったら起動完了です！&lt;/p&gt;
+&lt;p&gt;&lt;img src="../images/20-getting-started/started-codespaces.png" alt="started codespaces"&gt;&lt;/p&gt;
+&lt;p&gt;画面下部の&lt;code&gt;TERMINAL&lt;/code&gt;パネルがターミナルです。以降の手順ではここにコマンドを入力していきます。&lt;/p&gt;
+
+&lt;div class="notices tip" &gt;&lt;p&gt;コマンドが動かなくなった場合は、&lt;a href="https://jaws-ug-cdk.github.io/aws-cdk-coding-beginner-workshop/95-troubleshooting/index.html"&gt;トラブルシューティング&lt;/a&gt;
+を確認してください。&lt;/p&gt;
+&lt;/div&gt;</description></item><item><title>プロパティを変更する</title><link>https://jaws-ug-cdk.github.io/aws-cdk-coding-beginner-workshop/40-add-resource/100-change-memory-size.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://jaws-ug-cdk.github.io/aws-cdk-coding-beginner-workshop/40-add-resource/100-change-memory-size.html</guid><description>&lt;h2 id="スタックを実装する"&gt;スタックを実装する&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;iac/lib/iac-stack.ts&lt;/code&gt; を開きます。GitHub Codespacesのターミナルで次のコマンドを実行します。&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;code &lt;span style="color:#e6db74"&gt;&amp;#34;&lt;/span&gt;&lt;span style="color:#66d9ef"&gt;$(&lt;/span&gt;git rev-parse --show-toplevel&lt;span style="color:#66d9ef"&gt;)&lt;/span&gt;&lt;span style="color:#e6db74"&gt;/iac/lib/iac-stack.ts&amp;#34;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;以下の内容に&lt;strong&gt;全体を書き換えます&lt;/strong&gt;。&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;display:grid;"&gt;&lt;code class="language-typescript" data-lang="typescript"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;import&lt;/span&gt; &lt;span style="color:#f92672"&gt;*&lt;/span&gt; &lt;span style="color:#66d9ef"&gt;as&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;cdk&lt;/span&gt; &lt;span style="color:#66d9ef"&gt;from&lt;/span&gt; &lt;span style="color:#e6db74"&gt;&amp;#39;aws-cdk-lib/core&amp;#39;&lt;/span&gt;;
@@ -74,7 +119,7 @@ command not found: pnpm
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; }
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;}
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="差分を確認する"&gt;差分を確認する&lt;/h2&gt;
-&lt;p&gt;&lt;code&gt;iac&lt;/code&gt; ディレクトリで実行します。&lt;/p&gt;
+&lt;p&gt;次のコマンドをターミナルで実行します。&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;pnpm exec cdk diff
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;以下のような差分が表示されます。&lt;/p&gt;
 &lt;pre tabindex="0"&gt;&lt;code&gt;Stack IacStack-dev
@@ -88,11 +133,12 @@ Resources
 &lt;/ul&gt;
 &lt;p&gt;リソースの置き換え（削除して作り直し）を伴わない、プロパティの更新のみであることが分かります。&lt;/p&gt;
 &lt;h2 id="デプロイする"&gt;デプロイする&lt;/h2&gt;
+&lt;p&gt;次のコマンドをターミナルで実行します。&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;pnpm exec cdk deploy
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="確認"&gt;確認&lt;/h2&gt;
-&lt;p&gt;AWS マネジメントコンソールの画面上部の検索窓に&lt;code&gt;CloudFormation&lt;/code&gt;と入力し、表示された&lt;code&gt;CloudFormation&lt;/code&gt;を選択します。&lt;code&gt;IacStack-dev&lt;/code&gt;スタックを開き、「リソース」タブで&lt;code&gt;Function&lt;/code&gt;を展開して&lt;code&gt;AWS::Lambda::Function&lt;/code&gt;の物理IDリンクをクリックし、Lambda関数のページに移動します。&lt;/p&gt;
+&lt;p&gt;先ほど開いたLambda関数を再度開きます。&lt;/p&gt;
 &lt;p&gt;&lt;img src="../images/40-add-resource/lambda-function-page.png" alt="lambda function page"&gt;&lt;/p&gt;</description></item><item><title>環境ごとの設定を追加する</title><link>https://jaws-ug-cdk.github.io/aws-cdk-coding-beginner-workshop/50-multi-env/100-configure-env.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://jaws-ug-cdk.github.io/aws-cdk-coding-beginner-workshop/50-multi-env/100-configure-env.html</guid><description>&lt;h2 id="設定ファイルを実装する"&gt;設定ファイルを実装する&lt;/h2&gt;
-&lt;p&gt;&lt;code&gt;iac/lib/config.ts&lt;/code&gt; を開きます。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;iac/lib/config.ts&lt;/code&gt; を開きます。GitHub Codespacesのターミナルで次のコマンドを実行します。&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;code &lt;span style="color:#e6db74"&gt;&amp;#34;&lt;/span&gt;&lt;span style="color:#66d9ef"&gt;$(&lt;/span&gt;git rev-parse --show-toplevel&lt;span style="color:#66d9ef"&gt;)&lt;/span&gt;&lt;span style="color:#e6db74"&gt;/iac/lib/config.ts&amp;#34;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;以下の内容に書き換えます。&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-typescript" data-lang="typescript"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;export&lt;/span&gt; &lt;span style="color:#66d9ef"&gt;interface&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;EnvConfig&lt;/span&gt; {
@@ -113,7 +159,7 @@ Resources
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;return&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;config&lt;/span&gt;;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;};
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="エントリポイントを実装する"&gt;エントリポイントを実装する&lt;/h2&gt;
-&lt;p&gt;&lt;code&gt;iac/bin/iac.ts&lt;/code&gt; を開きます。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;iac/bin/iac.ts&lt;/code&gt; を開きます。ターミナルで次のコマンドを実行します。&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;code &lt;span style="color:#e6db74"&gt;&amp;#34;&lt;/span&gt;&lt;span style="color:#66d9ef"&gt;$(&lt;/span&gt;git rev-parse --show-toplevel&lt;span style="color:#66d9ef"&gt;)&lt;/span&gt;&lt;span style="color:#e6db74"&gt;/iac/bin/iac.ts&amp;#34;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;以下の内容に&lt;strong&gt;全体を書き換えます&lt;/strong&gt;。&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;display:grid;"&gt;&lt;code class="language-typescript" data-lang="typescript"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#960050;background-color:#1e0010"&gt;#&lt;/span&gt;&lt;span style="color:#f92672"&gt;!&lt;/span&gt;&lt;span style="color:#960050;background-color:#1e0010"&gt;/usr/bin/env node&lt;/span&gt;
@@ -128,33 +174,24 @@ Resources
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex; background-color:#3c3d38"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;const&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;config&lt;/span&gt; &lt;span style="color:#f92672"&gt;=&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;getConfig&lt;/span&gt;(&lt;span style="color:#a6e22e"&gt;env&lt;/span&gt;);
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex; background-color:#3c3d38"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;new&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;IacStack&lt;/span&gt;(&lt;span style="color:#a6e22e"&gt;app&lt;/span&gt;, &lt;span style="color:#e6db74"&gt;`IacStack-&lt;/span&gt;&lt;span style="color:#e6db74"&gt;${&lt;/span&gt;&lt;span style="color:#a6e22e"&gt;env&lt;/span&gt;&lt;span style="color:#e6db74"&gt;}&lt;/span&gt;&lt;span style="color:#e6db74"&gt;`&lt;/span&gt;, { &lt;span style="color:#a6e22e"&gt;config&lt;/span&gt; });
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;スタック名は、これまでの &lt;code&gt;IacStack-dev&lt;/code&gt; と同じ文字列になるように組み立てています。&lt;/p&gt;
-&lt;h2 id="スタックを実装する"&gt;スタックを実装する&lt;/h2&gt;
-&lt;p&gt;&lt;code&gt;iac/lib/iac-stack.ts&lt;/code&gt; を開きます。&lt;/p&gt;</description></item><item><title>前提条件</title><link>https://jaws-ug-cdk.github.io/aws-cdk-coding-beginner-workshop/20-getting-started/100-prerequisites.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://jaws-ug-cdk.github.io/aws-cdk-coding-beginner-workshop/20-getting-started/100-prerequisites.html</guid><description>&lt;h2 id="必要なもの"&gt;必要なもの&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;GitHub アカウント（GitHub Codespaces を利用します）&lt;/li&gt;
-&lt;li&gt;AWS アカウント（マネジメントコンソールにサインインできること）
-&lt;ul&gt;
-&lt;li&gt;IAMロール・Lambda・DynamoDBなどを作成するため、&lt;code&gt;AdministratorAccess&lt;/code&gt;相当の権限が必要です&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id="see-also"&gt;See Also&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href="https://aws.amazon.com/jp/register-flow/"&gt;AWS アカウント作成&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</description></item><item><title>AWSマネジメントコンソールにサインインする</title><link>https://jaws-ug-cdk.github.io/aws-cdk-coding-beginner-workshop/20-getting-started/150-aws-console-signin.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://jaws-ug-cdk.github.io/aws-cdk-coding-beginner-workshop/20-getting-started/150-aws-console-signin.html</guid><description>&lt;h2 id="手順"&gt;手順&lt;/h2&gt;
-&lt;p&gt;ブラウザで、このワークショップで使うAWSアカウントに、あらかじめサインインしておきます。&lt;/p&gt;
-&lt;p&gt;&lt;a href="https://console.aws.amazon.com/"&gt;https://console.aws.amazon.com/&lt;/a&gt;&lt;/p&gt;
-
-&lt;div class="notices note" &gt;&lt;p&gt;すでに別のAWSアカウントにサインインしている場合は、一度サインアウトしてから、このワークショップで使うアカウントでサインインし直してください。&lt;/p&gt;
-&lt;/div&gt;</description></item><item><title>cdk diff・deployコマンドを実行したら「Unable to resolve AWS account」エラーになる</title><link>https://jaws-ug-cdk.github.io/aws-cdk-coding-beginner-workshop/95-troubleshooting/200-aws-session.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://jaws-ug-cdk.github.io/aws-cdk-coding-beginner-workshop/95-troubleshooting/200-aws-session.html</guid><description>&lt;h2 id="症状"&gt;症状&lt;/h2&gt;
-&lt;p&gt;しばらく操作せずにいると、AWSへのログインセッションが切れることがあります。その状態で &lt;code&gt;cdk diff&lt;/code&gt; や &lt;code&gt;cdk deploy&lt;/code&gt; を実行すると、以下のようなエラーになります。&lt;/p&gt;
-&lt;pre tabindex="0"&gt;&lt;code&gt;Unable to resolve AWS account to use. It must be either configured when you define your CDK Stack, or through the environment
-&lt;/code&gt;&lt;/pre&gt;&lt;h2 id="対処法"&gt;対処法&lt;/h2&gt;
-&lt;p&gt;以下のコマンドを実行して、再度ログインします。&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;aws login --remote
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;あとは&lt;a href="https://jaws-ug-cdk.github.io/aws-cdk-coding-beginner-workshop/20-getting-started/300-aws-login.html"&gt;AWSにログインする&lt;/a&gt;の手順と同じです。&lt;/p&gt;</description></item><item><title>DynamoDBを追加する</title><link>https://jaws-ug-cdk.github.io/aws-cdk-coding-beginner-workshop/40-add-resource/200-add-dynamodb.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://jaws-ug-cdk.github.io/aws-cdk-coding-beginner-workshop/40-add-resource/200-add-dynamodb.html</guid><description>&lt;h2 id="lambda関数を実装する"&gt;Lambda関数を実装する&lt;/h2&gt;
-&lt;p&gt;&lt;code&gt;iac/lambda/write.ts&lt;/code&gt; を開きます。&lt;/p&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;スタック名は、これまでの &lt;code&gt;IacStack-dev&lt;/code&gt; と同じ文字列になるように組み立てています。&lt;/p&gt;</description></item><item><title>「--app is required」エラー</title><link>https://jaws-ug-cdk.github.io/aws-cdk-coding-beginner-workshop/95-troubleshooting/200-wrong-directory.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://jaws-ug-cdk.github.io/aws-cdk-coding-beginner-workshop/95-troubleshooting/200-wrong-directory.html</guid><description>&lt;h2 id="症状"&gt;症状&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;iac&lt;/code&gt; ディレクトリではなく、リポジトリのルートなど別の場所で &lt;code&gt;pnpm exec cdk diff&lt;/code&gt; や &lt;code&gt;pnpm exec cdk deploy&lt;/code&gt; を実行すると、以下のようなエラーになります。&lt;/p&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;--app is required either in command-line, in cdk.json or in ~/.cdk.json
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;これは &lt;code&gt;cdk.json&lt;/code&gt; が &lt;code&gt;iac&lt;/code&gt; ディレクトリの中にしか無いためです。&lt;/p&gt;
+&lt;h2 id="対処法"&gt;対処法&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;iac&lt;/code&gt; ディレクトリに移動してから、再度実行してください。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;cd &lt;span style="color:#e6db74"&gt;&amp;#34;&lt;/span&gt;&lt;span style="color:#66d9ef"&gt;$(&lt;/span&gt;git rev-parse --show-toplevel&lt;span style="color:#66d9ef"&gt;)&lt;/span&gt;&lt;span style="color:#e6db74"&gt;/iac&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description></item><item><title>AWS CDKとは</title><link>https://jaws-ug-cdk.github.io/aws-cdk-coding-beginner-workshop/10-introduction/200-what-is-cdk.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://jaws-ug-cdk.github.io/aws-cdk-coding-beginner-workshop/10-introduction/200-what-is-cdk.html</guid><description>&lt;p&gt;インフラリソースをコードで定義し、その定義ファイルをもとに構築する手法を、IaC（Infrastructure as Code）と呼びます。「リソースの状態」を管理し、定義ファイルとの差分を検出して変更点だけを反映するという仕組みです。&lt;/p&gt;
+&lt;p&gt;&lt;img src="../images/10-introduction/whats-iac.dio.png" alt="whats iac"&gt;&lt;/p&gt;
+&lt;p&gt;AWS CDKは、IaCを実現するツールの1つで、定義ファイルをTypeScriptなどの&lt;strong&gt;プログラミング言語&lt;/strong&gt;で書けるのが特徴です。
+AWSへデプロイすると「スタック」という単位で管理され、スタックによりリソースの状態が保持されます。&lt;/p&gt;
+&lt;p&gt;&lt;img src="../images/10-introduction/whats-cdk.dio.png" alt="whats cdk"&gt;&lt;/p&gt;
+&lt;p&gt;AWS CDKは裏側でAWS CloudFormationを利用しています。&lt;/p&gt;
+&lt;p&gt;CloudFormationはAWSリソースをJSON/YAMLファイルとして定義できるIaCサービスです。
+CDKで書いたコードがCloudFormationテンプレートに変換され、そのテンプレートをCloudFormationがデプロイします。&lt;/p&gt;
+&lt;p&gt;CDKがCloudFormationを抽象化していることにより、少ないコード量で本質的なインフラの設定を表現できます。&lt;/p&gt;
+&lt;p&gt;&lt;img src="../images/10-introduction/whats-cdk-in-cfn.dio.png" alt="whats cdk in cfn"&gt;&lt;/p&gt;</description></item><item><title>DynamoDBを追加する</title><link>https://jaws-ug-cdk.github.io/aws-cdk-coding-beginner-workshop/40-add-resource/200-add-dynamodb.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://jaws-ug-cdk.github.io/aws-cdk-coding-beginner-workshop/40-add-resource/200-add-dynamodb.html</guid><description>&lt;h2 id="lambda関数を実装する"&gt;Lambda関数を実装する&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;iac/lambda/write.ts&lt;/code&gt; を開きます。GitHub Codespacesのターミナルで次のコマンドを実行します。&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;code &lt;span style="color:#e6db74"&gt;&amp;#34;&lt;/span&gt;&lt;span style="color:#66d9ef"&gt;$(&lt;/span&gt;git rev-parse --show-toplevel&lt;span style="color:#66d9ef"&gt;)&lt;/span&gt;&lt;span style="color:#e6db74"&gt;/iac/lambda/write.ts&amp;#34;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;以下の内容に書き換えます。&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-typescript" data-lang="typescript"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;import&lt;/span&gt; { &lt;span style="color:#a6e22e"&gt;DynamoDBClient&lt;/span&gt; } &lt;span style="color:#66d9ef"&gt;from&lt;/span&gt; &lt;span style="color:#e6db74"&gt;&amp;#39;@aws-sdk/client-dynamodb&amp;#39;&lt;/span&gt;;
@@ -180,7 +217,7 @@ Resources
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; };
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;};
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="スタックを実装する"&gt;スタックを実装する&lt;/h2&gt;
-&lt;p&gt;&lt;code&gt;iac/lib/iac-stack.ts&lt;/code&gt; を開きます。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;iac/lib/iac-stack.ts&lt;/code&gt; を開きます。ターミナルで次のコマンドを実行します。&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;code &lt;span style="color:#e6db74"&gt;&amp;#34;&lt;/span&gt;&lt;span style="color:#66d9ef"&gt;$(&lt;/span&gt;git rev-parse --show-toplevel&lt;span style="color:#66d9ef"&gt;)&lt;/span&gt;&lt;span style="color:#e6db74"&gt;/iac/lib/iac-stack.ts&amp;#34;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;以下の内容に&lt;strong&gt;全体を書き換えます&lt;/strong&gt;。&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;display:grid;"&gt;&lt;code class="language-typescript" data-lang="typescript"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;import&lt;/span&gt; &lt;span style="color:#f92672"&gt;*&lt;/span&gt; &lt;span style="color:#66d9ef"&gt;as&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;cdk&lt;/span&gt; &lt;span style="color:#66d9ef"&gt;from&lt;/span&gt; &lt;span style="color:#e6db74"&gt;&amp;#39;aws-cdk-lib/core&amp;#39;&lt;/span&gt;;
@@ -209,9 +246,46 @@ Resources
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; }
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;}
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="差分を確認する"&gt;差分を確認する&lt;/h2&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;pnpm exec cdk diff
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;以下のような差分が表示されます。&lt;/p&gt;</description></item><item><title>prod環境を追加する</title><link>https://jaws-ug-cdk.github.io/aws-cdk-coding-beginner-workshop/50-multi-env/200-add-prod-env.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://jaws-ug-cdk.github.io/aws-cdk-coding-beginner-workshop/50-multi-env/200-add-prod-env.html</guid><description>&lt;h2 id="設定ファイルを更新する"&gt;設定ファイルを更新する&lt;/h2&gt;
-&lt;p&gt;&lt;code&gt;iac/lib/config.ts&lt;/code&gt; を開きます。&lt;/p&gt;
+&lt;p&gt;次のコマンドをターミナルで実行します。&lt;/p&gt;</description></item><item><title>プロジェクトを作成する</title><link>https://jaws-ug-cdk.github.io/aws-cdk-coding-beginner-workshop/20-getting-started/200-create-project.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://jaws-ug-cdk.github.io/aws-cdk-coding-beginner-workshop/20-getting-started/200-create-project.html</guid><description>&lt;h2 id="手順"&gt;手順&lt;/h2&gt;
+&lt;p&gt;次のコマンドでAWS CDKプロジェクトを作成します。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;cd iac
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;pnpm dlx cdk init app -l ts --package-manager pnpm
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;code&gt;iac&lt;/code&gt; ディレクトリの中にCDKを実行するためのファイル群が作成されます。&lt;/p&gt;
+&lt;h2 id="パッケージを追加する"&gt;パッケージを追加する&lt;/h2&gt;
+&lt;p&gt;このワークショップで後ほど使用するパッケージを、まとめて追加しておきます。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;pnpm add -D esbuild@0.28.1 @aws-sdk/client-dynamodb@3.1078.0 @aws-sdk/lib-dynamodb@3.1078.0
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;pnpm approve-builds --all
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description></item><item><title>合成（synth）する</title><link>https://jaws-ug-cdk.github.io/aws-cdk-coding-beginner-workshop/30-first-app/200-synth.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://jaws-ug-cdk.github.io/aws-cdk-coding-beginner-workshop/30-first-app/200-synth.html</guid><description>&lt;h2 id="手順"&gt;手順&lt;/h2&gt;
+&lt;p&gt;CDKのソースコードをCloudFormationテンプレートに合成します。
+以下のコマンドをGitHub Codespacesのターミナルで実行してください。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;pnpm exec cdk synth
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;合成されたテンプレートを開きます。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;code &lt;span style="color:#e6db74"&gt;&amp;#34;&lt;/span&gt;&lt;span style="color:#66d9ef"&gt;$(&lt;/span&gt;git rev-parse --show-toplevel&lt;span style="color:#66d9ef"&gt;)&lt;/span&gt;&lt;span style="color:#e6db74"&gt;/iac/cdk.out/IacStack-dev.template.json&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;テンプレートのLambda関数を見ると、CDKのコードで直接指定していない&lt;code&gt;Runtime&lt;/code&gt;の設定も反映されています。
+これは指定しなかった場合にAWSが推奨するランタイムを、CDKが自動的に設定してくれるためです。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-json" data-lang="json"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e6db74"&gt;&amp;#34;Function76856677&amp;#34;&lt;/span&gt;&lt;span style="color:#960050;background-color:#1e0010"&gt;:&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#f92672"&gt;&amp;#34;Type&amp;#34;&lt;/span&gt;: &lt;span style="color:#e6db74"&gt;&amp;#34;AWS::Lambda::Function&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#f92672"&gt;&amp;#34;Properties&amp;#34;&lt;/span&gt;: {
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#f92672"&gt;&amp;#34;Code&amp;#34;&lt;/span&gt;: {
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#f92672"&gt;&amp;#34;S3Bucket&amp;#34;&lt;/span&gt;: {
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#f92672"&gt;&amp;#34;Fn::Sub&amp;#34;&lt;/span&gt;: &lt;span style="color:#e6db74"&gt;&amp;#34;cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; },
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#f92672"&gt;&amp;#34;S3Key&amp;#34;&lt;/span&gt;: &lt;span style="color:#e6db74"&gt;&amp;#34;&amp;lt;asset-hash&amp;gt;.zip&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; },
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#f92672"&gt;&amp;#34;Handler&amp;#34;&lt;/span&gt;: &lt;span style="color:#e6db74"&gt;&amp;#34;index.handler&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#f92672"&gt;&amp;#34;Role&amp;#34;&lt;/span&gt;: {
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#f92672"&gt;&amp;#34;Fn::GetAtt&amp;#34;&lt;/span&gt;: [
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e6db74"&gt;&amp;#34;FunctionServiceRole675BB04A&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e6db74"&gt;&amp;#34;Arn&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; ]
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; },
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#f92672"&gt;&amp;#34;Runtime&amp;#34;&lt;/span&gt;: &lt;span style="color:#e6db74"&gt;&amp;#34;nodejs24.x&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; },
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; }&lt;span style="color:#960050;background-color:#1e0010"&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#960050;background-color:#1e0010"&gt;（略）&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#960050;background-color:#1e0010"&gt;},&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description></item><item><title>本番環境を追加する</title><link>https://jaws-ug-cdk.github.io/aws-cdk-coding-beginner-workshop/50-multi-env/200-add-prod-env.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://jaws-ug-cdk.github.io/aws-cdk-coding-beginner-workshop/50-multi-env/200-add-prod-env.html</guid><description>&lt;h2 id="設定ファイルを更新する"&gt;設定ファイルを更新する&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;iac/lib/config.ts&lt;/code&gt; を開きます。GitHub Codespacesのターミナルで次のコマンドを実行します。&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;code &lt;span style="color:#e6db74"&gt;&amp;#34;&lt;/span&gt;&lt;span style="color:#66d9ef"&gt;$(&lt;/span&gt;git rev-parse --show-toplevel&lt;span style="color:#66d9ef"&gt;)&lt;/span&gt;&lt;span style="color:#e6db74"&gt;/iac/lib/config.ts&amp;#34;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;以下の内容に&lt;strong&gt;全体を書き換えます&lt;/strong&gt;。&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;display:grid;"&gt;&lt;code class="language-typescript" data-lang="typescript"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;export&lt;/span&gt; &lt;span style="color:#66d9ef"&gt;interface&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;EnvConfig&lt;/span&gt; {
@@ -234,66 +308,24 @@ Resources
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; }
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;return&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;config&lt;/span&gt;;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;};
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="合成する"&gt;合成する&lt;/h2&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;pnpm exec cdk synth -c env&lt;span style="color:#f92672"&gt;=&lt;/span&gt;prod
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="デプロイする"&gt;デプロイする&lt;/h2&gt;
 &lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;pnpm exec cdk deploy -c env&lt;span style="color:#f92672"&gt;=&lt;/span&gt;prod
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;code&gt;IacStack-prod&lt;/code&gt;は初回デプロイなので、&lt;a href="https://jaws-ug-cdk.github.io/aws-cdk-coding-beginner-workshop/30-first-app/300-deploy.html"&gt;最初のアプリを作る&lt;/a&gt;の時と同じくIAM変更の確認が表示されます。&lt;code&gt;y&lt;/code&gt;を入力してデプロイを続行します。&lt;/p&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;code&gt;IacStack-prod&lt;/code&gt;は初回デプロイなので、&lt;a href="https://jaws-ug-cdk.github.io/aws-cdk-coding-beginner-workshop/30-first-app/300-deploy.html"&gt;最初のアプリを作る&lt;/a&gt;
+の時と同じくIAM変更の確認が表示されます。&lt;code&gt;y&lt;/code&gt;を入力してデプロイを続行します。&lt;/p&gt;
 &lt;pre tabindex="0"&gt;&lt;code&gt;Do you wish to deploy these changes? (y/n) y
 &lt;/code&gt;&lt;/pre&gt;&lt;h2 id="確認"&gt;確認&lt;/h2&gt;
-&lt;p&gt;AWS マネジメントコンソールの画面上部の検索窓に&lt;code&gt;CloudFormation&lt;/code&gt;と入力し、表示された&lt;code&gt;CloudFormation&lt;/code&gt;を選択します。&lt;code&gt;IacStack-dev&lt;/code&gt;とは別に&lt;code&gt;IacStack-prod&lt;/code&gt;スタックが&lt;code&gt;CREATE_COMPLETE&lt;/code&gt;で作成されていることを確認します。&lt;/p&gt;</description></item><item><title>ツールのインストール</title><link>https://jaws-ug-cdk.github.io/aws-cdk-coding-beginner-workshop/20-getting-started/200-install.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://jaws-ug-cdk.github.io/aws-cdk-coding-beginner-workshop/20-getting-started/200-install.html</guid><description>&lt;h2 id="このページについて"&gt;このページについて&lt;/h2&gt;
-&lt;p&gt;このハンズオンでは &lt;a href="https://github.co.jp/features/codespaces"&gt;GitHub Codespaces&lt;/a&gt; を使って進めます！&lt;/p&gt;
-&lt;h2 id="手順"&gt;手順&lt;/h2&gt;
-&lt;h3 id="1-リポジトリを作成する"&gt;1. リポジトリを作成する&lt;/h3&gt;
-&lt;p&gt;以下のリンクをクリックして、新しいGitHubリポジトリを作成します。&lt;/p&gt;
-&lt;p&gt;&lt;a href="https://github.com/codespaces/new?template_repository=jaws-ug-cdk/cdk-workshop-template"&gt;https://github.com/codespaces/new?template_repository=jaws-ug-cdk/cdk-workshop-template&lt;/a&gt;&lt;/p&gt;
-
-&lt;div class="notices warning" &gt;&lt;p&gt;「Resume codespace」というタイトルの画面が表示され、下部に&lt;code&gt;Create a new one&lt;/code&gt;と&lt;code&gt;Resume&lt;/code&gt;という2つのボタンが並んでいることがあります。その場合は&lt;code&gt;Create a new one&lt;/code&gt;を選んでください。&lt;/p&gt;
-&lt;/div&gt;
-
-&lt;p&gt;以下を設定して&lt;code&gt;Create repository&lt;/code&gt;ボタンを押してリポジトリを作成します。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;リポジトリ名: &lt;code&gt;aws-cdk-coding-beginner-workshop-yyyymmdd&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;公開設定: &lt;code&gt;Private&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class="notices note" &gt;&lt;p&gt;&lt;code&gt;yyyymmdd&lt;/code&gt;の部分は今日の日付に置き換えてください（例: 2026年7月2日なら&lt;code&gt;20260702&lt;/code&gt;）。何度もこのワークショップに参加してリポジトリを作り直しても、日付が違えば名前が重複しません。&lt;/p&gt;
-&lt;/div&gt;
-
-&lt;p&gt;&lt;img src="../images/20-getting-started/create-repository.png" alt="create repository"&gt;&lt;/p&gt;
-&lt;h3 id="2-github-codespacesを起動する"&gt;2. GitHub Codespacesを起動する&lt;/h3&gt;
-&lt;p&gt;&lt;code&gt;Code&lt;/code&gt;ボタンから&lt;code&gt;Codespaces&lt;/code&gt;タブを開き、&lt;code&gt;Create codespace on main&lt;/code&gt;ボタンを押します。&lt;/p&gt;
-&lt;p&gt;&lt;img src="../images/20-getting-started/create-codespaces.png" alt="create codespaces"&gt;&lt;/p&gt;
-&lt;p&gt;すると画面が遷移してCodespacesが作成されるのでしばらく待ちます。&lt;/p&gt;
-&lt;p&gt;このような画面になったら起動完了です！&lt;/p&gt;
-&lt;p&gt;&lt;img src="../images/20-getting-started/started-codespaces.png" alt="started codespaces"&gt;&lt;/p&gt;
-&lt;p&gt;画面下部の&lt;code&gt;TERMINAL&lt;/code&gt;パネルがターミナルです。以降の手順ではここにコマンドを入力していきます。&lt;/p&gt;
-
-&lt;div class="notices tip" &gt;&lt;p&gt;コマンドが動かなくなった場合は、&lt;a href="https://jaws-ug-cdk.github.io/aws-cdk-coding-beginner-workshop/95-troubleshooting/index.html"&gt;トラブルシューティング&lt;/a&gt;を確認してください。&lt;/p&gt;
-&lt;/div&gt;</description></item><item><title>合成（synth）する</title><link>https://jaws-ug-cdk.github.io/aws-cdk-coding-beginner-workshop/30-first-app/200-synth.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://jaws-ug-cdk.github.io/aws-cdk-coding-beginner-workshop/30-first-app/200-synth.html</guid><description>&lt;h2 id="手順"&gt;手順&lt;/h2&gt;
-&lt;p&gt;&lt;code&gt;iac&lt;/code&gt; ディレクトリで実行します。&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;pnpm exec cdk synth
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="生成されたテンプレートを確認する"&gt;生成されたテンプレートを確認する&lt;/h2&gt;
-&lt;p&gt;&lt;code&gt;cdk synth&lt;/code&gt;によって、&lt;code&gt;cdk.out&lt;/code&gt;ディレクトリにCloudFormationテンプレートが生成されます。&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;code &lt;span style="color:#e6db74"&gt;&amp;#34;&lt;/span&gt;&lt;span style="color:#66d9ef"&gt;$(&lt;/span&gt;git rev-parse --show-toplevel&lt;span style="color:#66d9ef"&gt;)&lt;/span&gt;&lt;span style="color:#e6db74"&gt;/iac/cdk.out/IacStack-dev.template.json&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Lambda関数やIAMロールなど、TypeScriptで書いたコードがCloudFormationのリソース定義に変換されていることが確認できます。&lt;/p&gt;</description></item><item><title>AWSにログインする</title><link>https://jaws-ug-cdk.github.io/aws-cdk-coding-beginner-workshop/20-getting-started/300-aws-login.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://jaws-ug-cdk.github.io/aws-cdk-coding-beginner-workshop/20-getting-started/300-aws-login.html</guid><description>&lt;h2 id="手順"&gt;手順&lt;/h2&gt;
-&lt;p&gt;Codespaces のターミナルで以下を実行します。&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;aws login --remote
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;div class="notices note" &gt;&lt;p&gt;ターミナルに初めて貼り付けする際、ブラウザからクリップボードへのアクセス許可を求められることがあります。その場合は&lt;code&gt;Allow&lt;/code&gt;を押してください。&lt;/p&gt;
-&lt;/div&gt;
-
-&lt;p&gt;リージョンを聞かれたら&lt;code&gt;ap-northeast-1&lt;/code&gt;を入力します。&lt;/p&gt;
-&lt;pre tabindex="0"&gt;&lt;code&gt;AWS Region [us-east-1]: ap-northeast-1
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;ターミナルにURLが表示されるので、コピーしてブラウザに貼り付けて開きます。&lt;/p&gt;
-&lt;p&gt;ブラウザに表示された&lt;code&gt;検証コードをコピー&lt;/code&gt;ボタンでコードをコピーし、ターミナルに貼り付けてログインを完了します。&lt;/p&gt;</description></item><item><title>cdk diff・deployコマンドを実行したら「--app is required」エラーになる</title><link>https://jaws-ug-cdk.github.io/aws-cdk-coding-beginner-workshop/95-troubleshooting/300-wrong-directory.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://jaws-ug-cdk.github.io/aws-cdk-coding-beginner-workshop/95-troubleshooting/300-wrong-directory.html</guid><description>&lt;h2 id="症状"&gt;症状&lt;/h2&gt;
-&lt;p&gt;&lt;code&gt;iac&lt;/code&gt; ディレクトリではなく、リポジトリのルートなど別の場所で &lt;code&gt;pnpm exec cdk diff&lt;/code&gt; や &lt;code&gt;pnpm exec cdk deploy&lt;/code&gt; を実行すると、以下のようなエラーになります。&lt;/p&gt;
-&lt;pre tabindex="0"&gt;&lt;code&gt;--app is required either in command-line, in cdk.json or in ~/.cdk.json
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;これは &lt;code&gt;cdk.json&lt;/code&gt; が &lt;code&gt;iac&lt;/code&gt; ディレクトリの中にしか無いためです。&lt;/p&gt;
-&lt;h2 id="対処法"&gt;対処法&lt;/h2&gt;
-&lt;p&gt;&lt;code&gt;iac&lt;/code&gt; ディレクトリに移動してから、再度実行してください。&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;cd &lt;span style="color:#e6db74"&gt;&amp;#34;&lt;/span&gt;&lt;span style="color:#66d9ef"&gt;$(&lt;/span&gt;git rev-parse --show-toplevel&lt;span style="color:#66d9ef"&gt;)&lt;/span&gt;&lt;span style="color:#e6db74"&gt;/iac&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description></item><item><title>IAM権限を付与する</title><link>https://jaws-ug-cdk.github.io/aws-cdk-coding-beginner-workshop/40-add-resource/300-add-grant.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://jaws-ug-cdk.github.io/aws-cdk-coding-beginner-workshop/40-add-resource/300-add-grant.html</guid><description>&lt;h2 id="スタックを実装する"&gt;スタックを実装する&lt;/h2&gt;
+&lt;p&gt;AWS マネジメントコンソールの画面上部の検索窓に&lt;code&gt;CloudFormation&lt;/code&gt;と入力し、表示された&lt;code&gt;CloudFormation&lt;/code&gt;を選択します。&lt;code&gt;IacStack-dev&lt;/code&gt;とは別に&lt;code&gt;IacStack-prod&lt;/code&gt;スタックが&lt;code&gt;CREATE_COMPLETE&lt;/code&gt;で作成されていることを確認します。&lt;/p&gt;
+&lt;p&gt;&lt;img src="../images/50-multi-env/prod-stacks-list.png" alt="prod stacks list"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;IacStack-prod&lt;/code&gt;スタックを開きます。「リソース」タブで&lt;code&gt;Function&lt;/code&gt;を展開し、&lt;code&gt;AWS::Lambda::Function&lt;/code&gt;の物理IDリンクをクリックしてLambda関数のページに移動します。&lt;/p&gt;
+&lt;p&gt;&lt;img src="../images/50-multi-env/prod-stack-resources.png" alt="prod stack resources"&gt;&lt;/p&gt;</description></item><item><title>CDK Bootstrap</title><link>https://jaws-ug-cdk.github.io/aws-cdk-coding-beginner-workshop/20-getting-started/300-bootstrap.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://jaws-ug-cdk.github.io/aws-cdk-coding-beginner-workshop/20-getting-started/300-bootstrap.html</guid><description>&lt;h2 id="手順"&gt;手順&lt;/h2&gt;
+&lt;p&gt;AWSアカウントにてCDKデプロイできるように&lt;code&gt;cdk bootstrap&lt;/code&gt;コマンドを実行します。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;pnpm exec cdk bootstrap
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="確認"&gt;確認&lt;/h2&gt;
+&lt;p&gt;AWS マネジメントコンソールの画面上部の検索窓に&lt;code&gt;CloudFormation&lt;/code&gt;と入力し、表示された&lt;code&gt;CloudFormation&lt;/code&gt;を選択します。&lt;/p&gt;
+&lt;p&gt;&lt;img src="../images/20-getting-started/search-cloudformation.png" alt="search CloudFormation"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;CDKToolkit&lt;/code&gt;スタックが&lt;code&gt;CREATE_COMPLETE&lt;/code&gt;になっていることを確認します。&lt;/p&gt;
+&lt;p&gt;&lt;img src="../images/20-getting-started/cdktoolkit-stack.png" alt="CDKToolkit stack"&gt;&lt;/p&gt;
+&lt;p&gt;これで環境準備は完了です。次の章では、実際に Lambda 関数を実装していきます。&lt;/p&gt;</description></item><item><title>IAM権限を付与する</title><link>https://jaws-ug-cdk.github.io/aws-cdk-coding-beginner-workshop/40-add-resource/300-add-grant.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://jaws-ug-cdk.github.io/aws-cdk-coding-beginner-workshop/40-add-resource/300-add-grant.html</guid><description>&lt;h2 id="スタックを実装する"&gt;スタックを実装する&lt;/h2&gt;
 &lt;p&gt;&lt;code&gt;iac/lib/iac-stack.ts&lt;/code&gt; を開きます。&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;code &lt;span style="color:#e6db74"&gt;&amp;#34;&lt;/span&gt;&lt;span style="color:#66d9ef"&gt;$(&lt;/span&gt;git rev-parse --show-toplevel&lt;span style="color:#66d9ef"&gt;)&lt;/span&gt;&lt;span style="color:#e6db74"&gt;/iac/lib/iac-stack.ts&amp;#34;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;以下の内容に&lt;strong&gt;全体を書き換えます&lt;/strong&gt;。&lt;/p&gt;
@@ -326,7 +358,7 @@ Resources
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;}
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="差分を確認する"&gt;差分を確認する&lt;/h2&gt;
 &lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;pnpm exec cdk diff
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;以下のような差分が表示されます。&lt;/p&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;権限の差分では、DynamoDBテーブルに対してLambda関数から読み書きできる権限が付与されています。&lt;/p&gt;
 &lt;pre tabindex="0"&gt;&lt;code&gt;IAM Statement Changes
 ┌───┬──────────────────┬────────┬───────────────────────────────────────┬──────────────────────────────┬───────────┐
 │ │ Resource │ Effect │ Action │ Principal │ Condition │
@@ -344,49 +376,28 @@ Resources
 │ │ │ │ dynamodb:Scan │ │ │
 │ │ │ │ dynamodb:UpdateItem │ │ │
 └───┴──────────────────┴────────┴───────────────────────────────────────┴──────────────────────────────┴───────────┘
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;テーブルへの読み書きに必要な操作が&lt;code&gt;Allow&lt;/code&gt;される、という意味の表です。&lt;/p&gt;</description></item><item><title>デプロイする</title><link>https://jaws-ug-cdk.github.io/aws-cdk-coding-beginner-workshop/30-first-app/300-deploy.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://jaws-ug-cdk.github.io/aws-cdk-coding-beginner-workshop/30-first-app/300-deploy.html</guid><description>&lt;h2 id="手順"&gt;手順&lt;/h2&gt;
-&lt;p&gt;&lt;code&gt;iac&lt;/code&gt; ディレクトリで実行します。&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;リソースの差分では、Lambda関数が利用しているIAMロールに新しいポリシーが追加されています。&lt;/p&gt;</description></item><item><title>デプロイする</title><link>https://jaws-ug-cdk.github.io/aws-cdk-coding-beginner-workshop/30-first-app/300-deploy.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://jaws-ug-cdk.github.io/aws-cdk-coding-beginner-workshop/30-first-app/300-deploy.html</guid><description>&lt;h2 id="手順"&gt;手順&lt;/h2&gt;
+&lt;p&gt;いよいよCDKで実装したLambda関数をAWSへデプロイします。
+次のコマンドをGitHub Codespacesのターミナルで実行してください。&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;pnpm exec cdk deploy
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="iam変更の確認"&gt;IAM変更の確認&lt;/h2&gt;
-&lt;p&gt;Lambda 関数の実行ロール（IAMロール・ポリシー）が新規作成されるため、途中で変更内容の確認が表示されます。内容を確認し、&lt;code&gt;y&lt;/code&gt; を入力してデプロイを続行します。&lt;/p&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;デプロイ中にCDKアプリが合成された後、IAM権限が変更されている箇所がリストアップされます。
+ここでは、Lambda 関数の実行ロール（IAMロール・ポリシー）が新規作成されています。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-md" data-lang="md"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;IAM Statement Changes
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;┌───┬─────────────────────────────┬────────┬────────────────┬──────────────────────────────┬───────────┐
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;│ │ Resource │ Effect │ Action │ Principal │ Condition │
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;├───┼─────────────────────────────┼────────┼────────────────┼──────────────────────────────┼───────────┤
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;│ + │ ${Function/ServiceRole.Arn} │ Allow │ sts:AssumeRole │ Service:lambda.amazonaws.com │ │
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;└───┴─────────────────────────────┴────────┴────────────────┴──────────────────────────────┴───────────┘
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;IAM Policy Changes
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;┌───┬─────────────────────────┬────────────────────────────────────────────────────────────────────────────────┐
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;│ │ Resource │ Managed Policy ARN │
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;├───┼─────────────────────────┼────────────────────────────────────────────────────────────────────────────────┤
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;│ + │ ${Function/ServiceRole} │ arn:${AWS::Partition}:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole │
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;└───┴─────────────────────────┴────────────────────────────────────────────────────────────────────────────────┘
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;code&gt;y&lt;/code&gt; を入力してデプロイを続行します。&lt;/p&gt;
 &lt;pre tabindex="0"&gt;&lt;code&gt;Do you wish to deploy these changes? (y/n) y
-&lt;/code&gt;&lt;/pre&gt;
-&lt;div class="notices note" &gt;&lt;p&gt;IAMロールやポリシーなど、セキュリティに関わるリソースの変更がある場合、&lt;code&gt;cdk deploy&lt;/code&gt; はデフォルトで確認を挟みます。&lt;/p&gt;
-&lt;/div&gt;
-
-&lt;h2 id="確認"&gt;確認&lt;/h2&gt;
-&lt;p&gt;AWS マネジメントコンソールの画面上部の検索窓に&lt;code&gt;CloudFormation&lt;/code&gt;と入力し、表示された&lt;code&gt;CloudFormation&lt;/code&gt;を選択します。&lt;/p&gt;
-&lt;p&gt;&lt;img src="../images/20-getting-started/search-cloudformation.png" alt="search CloudFormation"&gt;&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;IacStack-dev&lt;/code&gt;スタックを開きます。「リソース」タブで&lt;code&gt;Function&lt;/code&gt;を展開し、&lt;code&gt;AWS::Lambda::Function&lt;/code&gt;の物理IDリンクをクリックしてLambda関数のページに移動します。&lt;/p&gt;
-&lt;p&gt;&lt;img src="../images/30-first-app/stack-resources.png" alt="stack resources"&gt;&lt;/p&gt;
-&lt;p&gt;Lambda関数のページに移動します。&lt;/p&gt;
-&lt;p&gt;&lt;img src="../images/30-first-app/lambda-function-page.png" alt="lambda function page"&gt;&lt;/p&gt;
-&lt;p&gt;「テスト」タブを開き、画面右上の&lt;code&gt;テスト&lt;/code&gt;ボタンをクリックして関数を実行します。&lt;/p&gt;
-&lt;p&gt;&lt;img src="../images/30-first-app/lambda-test-button.png" alt="lambda test button"&gt;&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;&amp;quot;body&amp;quot;: &amp;quot;Hello, CDK!&amp;quot;&lt;/code&gt;が返ってくることを確認します。&lt;/p&gt;
-&lt;p&gt;&lt;img src="../images/30-first-app/lambda-test-result.png" alt="lambda test result"&gt;&lt;/p&gt;
-&lt;p&gt;次の章では、このアプリを更新していきます。&lt;/p&gt;</description></item><item><title>プロジェクトを作成する</title><link>https://jaws-ug-cdk.github.io/aws-cdk-coding-beginner-workshop/20-getting-started/400-create-project.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://jaws-ug-cdk.github.io/aws-cdk-coding-beginner-workshop/20-getting-started/400-create-project.html</guid><description>&lt;h2 id="手順"&gt;手順&lt;/h2&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;cd iac
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;pnpm dlx cdk init app -l ts --package-manager pnpm
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;code&gt;iac&lt;/code&gt; ディレクトリの中に、以下のファイルが生成されます。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;bin/iac.ts&lt;/code&gt; … アプリのエントリポイント&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;lib/iac-stack.ts&lt;/code&gt; … スタック定義（&lt;code&gt;IacStack&lt;/code&gt; クラス）&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class="notices note" &gt;&lt;p&gt;以降の手順は、すべて &lt;code&gt;iac&lt;/code&gt; ディレクトリで実行する前提で書かれています。ターミナルを開き直した際は &lt;code&gt;cd iac&lt;/code&gt; を忘れずに実行してください。&lt;/p&gt;
-&lt;/div&gt;
-
-&lt;h2 id="パッケージを追加する"&gt;パッケージを追加する&lt;/h2&gt;
-&lt;p&gt;このワークショップで後ほど使用するパッケージを、まとめて追加しておきます。&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;pnpm add -D esbuild@0.28.1 @aws-sdk/client-dynamodb@3.1078.0 @aws-sdk/lib-dynamodb@3.1078.0
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;pnpm approve-builds --all
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description></item><item><title>CDK Bootstrap</title><link>https://jaws-ug-cdk.github.io/aws-cdk-coding-beginner-workshop/20-getting-started/500-bootstrap.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://jaws-ug-cdk.github.io/aws-cdk-coding-beginner-workshop/20-getting-started/500-bootstrap.html</guid><description>&lt;h2 id="手順"&gt;手順&lt;/h2&gt;
-&lt;p&gt;&lt;code&gt;iac&lt;/code&gt; ディレクトリで実行します。&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;pnpm exec cdk bootstrap
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="確認"&gt;確認&lt;/h2&gt;
-&lt;p&gt;AWS マネジメントコンソールの画面上部の検索窓に&lt;code&gt;CloudFormation&lt;/code&gt;と入力し、表示された&lt;code&gt;CloudFormation&lt;/code&gt;を選択します。&lt;/p&gt;
-&lt;p&gt;&lt;img src="../images/20-getting-started/search-cloudformation.png" alt="search CloudFormation"&gt;&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;CDKToolkit&lt;/code&gt;スタックが&lt;code&gt;CREATE_COMPLETE&lt;/code&gt;になっていることを確認します。&lt;/p&gt;
-&lt;p&gt;&lt;img src="../images/20-getting-started/cdktoolkit-stack.png" alt="CDKToolkit stack"&gt;&lt;/p&gt;
-&lt;p&gt;これで環境準備は完了です。次の章では、実際に Lambda 関数を実装していきます。&lt;/p&gt;</description></item></channel></rss>
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id="確認"&gt;確認&lt;/h2&gt;
+&lt;p&gt;AWS マネジメントコンソールの画面上部の検索窓に&lt;code&gt;CloudFormation&lt;/code&gt;と入力し、表示された&lt;code&gt;CloudFormation&lt;/code&gt;を選択します。&lt;/p&gt;</description></item><item><title>今回のアーキテクチャ</title><link>https://jaws-ug-cdk.github.io/aws-cdk-coding-beginner-workshop/10-introduction/300-architecture.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://jaws-ug-cdk.github.io/aws-cdk-coding-beginner-workshop/10-introduction/300-architecture.html</guid><description>&lt;p&gt;このワークショップでは、次のようなサーバーレスアプリケーションを構築します。&lt;/p&gt;
+&lt;p&gt;&lt;img src="../images/10-introduction/architecture.dio.svg" alt="architecture"&gt;&lt;/p&gt;
+&lt;p&gt;構築が完了したらこれまで作り上げてきた構成を本番環境として複製します。CDKを使えば、環境の複製がどれだけ簡単か体感していただけるはずです。&lt;/p&gt;
+&lt;p&gt;&lt;img src="../images/10-introduction/architecture-mulch-envs.dio.svg" alt="architecture with multiple environments"&gt;&lt;/p&gt;</description></item></channel></rss>

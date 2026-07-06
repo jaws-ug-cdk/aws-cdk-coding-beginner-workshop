@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>アプリを更新する on AWS CDK Coding Beginner Workshop</title><link>https://jaws-ug-cdk.github.io/aws-cdk-coding-beginner-workshop/40-add-resource/index.html</link><description>Recent content in アプリを更新する on AWS CDK Coding Beginner Workshop</description><generator>Hugo</generator><language>ja</language><atom:link href="https://jaws-ug-cdk.github.io/aws-cdk-coding-beginner-workshop/40-add-resource/index.xml" rel="self" type="application/rss+xml"/><item><title>プロパティを変更する</title><link>https://jaws-ug-cdk.github.io/aws-cdk-coding-beginner-workshop/40-add-resource/100-change-memory-size.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://jaws-ug-cdk.github.io/aws-cdk-coding-beginner-workshop/40-add-resource/100-change-memory-size.html</guid><description>&lt;h2 id="スタックを実装する"&gt;スタックを実装する&lt;/h2&gt;
-&lt;p&gt;&lt;code&gt;iac/lib/iac-stack.ts&lt;/code&gt; を開きます。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;iac/lib/iac-stack.ts&lt;/code&gt; を開きます。GitHub Codespacesのターミナルで次のコマンドを実行します。&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;code &lt;span style="color:#e6db74"&gt;&amp;#34;&lt;/span&gt;&lt;span style="color:#66d9ef"&gt;$(&lt;/span&gt;git rev-parse --show-toplevel&lt;span style="color:#66d9ef"&gt;)&lt;/span&gt;&lt;span style="color:#e6db74"&gt;/iac/lib/iac-stack.ts&amp;#34;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;以下の内容に&lt;strong&gt;全体を書き換えます&lt;/strong&gt;。&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;display:grid;"&gt;&lt;code class="language-typescript" data-lang="typescript"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;import&lt;/span&gt; &lt;span style="color:#f92672"&gt;*&lt;/span&gt; &lt;span style="color:#66d9ef"&gt;as&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;cdk&lt;/span&gt; &lt;span style="color:#66d9ef"&gt;from&lt;/span&gt; &lt;span style="color:#e6db74"&gt;&amp;#39;aws-cdk-lib/core&amp;#39;&lt;/span&gt;;
@@ -19,7 +19,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; }
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;}
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="差分を確認する"&gt;差分を確認する&lt;/h2&gt;
-&lt;p&gt;&lt;code&gt;iac&lt;/code&gt; ディレクトリで実行します。&lt;/p&gt;
+&lt;p&gt;次のコマンドをターミナルで実行します。&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;pnpm exec cdk diff
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;以下のような差分が表示されます。&lt;/p&gt;
 &lt;pre tabindex="0"&gt;&lt;code&gt;Stack IacStack-dev
@@ -33,11 +33,12 @@ Resources
 &lt;/ul&gt;
 &lt;p&gt;リソースの置き換え（削除して作り直し）を伴わない、プロパティの更新のみであることが分かります。&lt;/p&gt;
 &lt;h2 id="デプロイする"&gt;デプロイする&lt;/h2&gt;
+&lt;p&gt;次のコマンドをターミナルで実行します。&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;pnpm exec cdk deploy
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="確認"&gt;確認&lt;/h2&gt;
-&lt;p&gt;AWS マネジメントコンソールの画面上部の検索窓に&lt;code&gt;CloudFormation&lt;/code&gt;と入力し、表示された&lt;code&gt;CloudFormation&lt;/code&gt;を選択します。&lt;code&gt;IacStack-dev&lt;/code&gt;スタックを開き、「リソース」タブで&lt;code&gt;Function&lt;/code&gt;を展開して&lt;code&gt;AWS::Lambda::Function&lt;/code&gt;の物理IDリンクをクリックし、Lambda関数のページに移動します。&lt;/p&gt;
+&lt;p&gt;先ほど開いたLambda関数を再度開きます。&lt;/p&gt;
 &lt;p&gt;&lt;img src="../images/40-add-resource/lambda-function-page.png" alt="lambda function page"&gt;&lt;/p&gt;</description></item><item><title>DynamoDBを追加する</title><link>https://jaws-ug-cdk.github.io/aws-cdk-coding-beginner-workshop/40-add-resource/200-add-dynamodb.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://jaws-ug-cdk.github.io/aws-cdk-coding-beginner-workshop/40-add-resource/200-add-dynamodb.html</guid><description>&lt;h2 id="lambda関数を実装する"&gt;Lambda関数を実装する&lt;/h2&gt;
-&lt;p&gt;&lt;code&gt;iac/lambda/write.ts&lt;/code&gt; を開きます。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;iac/lambda/write.ts&lt;/code&gt; を開きます。GitHub Codespacesのターミナルで次のコマンドを実行します。&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;code &lt;span style="color:#e6db74"&gt;&amp;#34;&lt;/span&gt;&lt;span style="color:#66d9ef"&gt;$(&lt;/span&gt;git rev-parse --show-toplevel&lt;span style="color:#66d9ef"&gt;)&lt;/span&gt;&lt;span style="color:#e6db74"&gt;/iac/lambda/write.ts&amp;#34;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;以下の内容に書き換えます。&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-typescript" data-lang="typescript"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;import&lt;/span&gt; { &lt;span style="color:#a6e22e"&gt;DynamoDBClient&lt;/span&gt; } &lt;span style="color:#66d9ef"&gt;from&lt;/span&gt; &lt;span style="color:#e6db74"&gt;&amp;#39;@aws-sdk/client-dynamodb&amp;#39;&lt;/span&gt;;
@@ -63,7 +64,7 @@ Resources
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; };
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;};
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="スタックを実装する"&gt;スタックを実装する&lt;/h2&gt;
-&lt;p&gt;&lt;code&gt;iac/lib/iac-stack.ts&lt;/code&gt; を開きます。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;iac/lib/iac-stack.ts&lt;/code&gt; を開きます。ターミナルで次のコマンドを実行します。&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;code &lt;span style="color:#e6db74"&gt;&amp;#34;&lt;/span&gt;&lt;span style="color:#66d9ef"&gt;$(&lt;/span&gt;git rev-parse --show-toplevel&lt;span style="color:#66d9ef"&gt;)&lt;/span&gt;&lt;span style="color:#e6db74"&gt;/iac/lib/iac-stack.ts&amp;#34;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;以下の内容に&lt;strong&gt;全体を書き換えます&lt;/strong&gt;。&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;display:grid;"&gt;&lt;code class="language-typescript" data-lang="typescript"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;import&lt;/span&gt; &lt;span style="color:#f92672"&gt;*&lt;/span&gt; &lt;span style="color:#66d9ef"&gt;as&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;cdk&lt;/span&gt; &lt;span style="color:#66d9ef"&gt;from&lt;/span&gt; &lt;span style="color:#e6db74"&gt;&amp;#39;aws-cdk-lib/core&amp;#39;&lt;/span&gt;;
@@ -92,8 +93,7 @@ Resources
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; }
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;}
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="差分を確認する"&gt;差分を確認する&lt;/h2&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;pnpm exec cdk diff
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;以下のような差分が表示されます。&lt;/p&gt;</description></item><item><title>IAM権限を付与する</title><link>https://jaws-ug-cdk.github.io/aws-cdk-coding-beginner-workshop/40-add-resource/300-add-grant.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://jaws-ug-cdk.github.io/aws-cdk-coding-beginner-workshop/40-add-resource/300-add-grant.html</guid><description>&lt;h2 id="スタックを実装する"&gt;スタックを実装する&lt;/h2&gt;
+&lt;p&gt;次のコマンドをターミナルで実行します。&lt;/p&gt;</description></item><item><title>IAM権限を付与する</title><link>https://jaws-ug-cdk.github.io/aws-cdk-coding-beginner-workshop/40-add-resource/300-add-grant.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://jaws-ug-cdk.github.io/aws-cdk-coding-beginner-workshop/40-add-resource/300-add-grant.html</guid><description>&lt;h2 id="スタックを実装する"&gt;スタックを実装する&lt;/h2&gt;
 &lt;p&gt;&lt;code&gt;iac/lib/iac-stack.ts&lt;/code&gt; を開きます。&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;code &lt;span style="color:#e6db74"&gt;&amp;#34;&lt;/span&gt;&lt;span style="color:#66d9ef"&gt;$(&lt;/span&gt;git rev-parse --show-toplevel&lt;span style="color:#66d9ef"&gt;)&lt;/span&gt;&lt;span style="color:#e6db74"&gt;/iac/lib/iac-stack.ts&amp;#34;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;以下の内容に&lt;strong&gt;全体を書き換えます&lt;/strong&gt;。&lt;/p&gt;
@@ -126,7 +126,7 @@ Resources
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;}
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="差分を確認する"&gt;差分を確認する&lt;/h2&gt;
 &lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;pnpm exec cdk diff
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;以下のような差分が表示されます。&lt;/p&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;権限の差分では、DynamoDBテーブルに対してLambda関数から読み書きできる権限が付与されています。&lt;/p&gt;
 &lt;pre tabindex="0"&gt;&lt;code&gt;IAM Statement Changes
 ┌───┬──────────────────┬────────┬───────────────────────────────────────┬──────────────────────────────┬───────────┐
 │ │ Resource │ Effect │ Action │ Principal │ Condition │
@@ -144,4 +144,4 @@ Resources
 │ │ │ │ dynamodb:Scan │ │ │
 │ │ │ │ dynamodb:UpdateItem │ │ │
 └───┴──────────────────┴────────┴───────────────────────────────────────┴──────────────────────────────┴───────────┘
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;テーブルへの読み書きに必要な操作が&lt;code&gt;Allow&lt;/code&gt;される、という意味の表です。&lt;/p&gt;</description></item></channel></rss>
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;リソースの差分では、Lambda関数が利用しているIAMロールに新しいポリシーが追加されています。&lt;/p&gt;</description></item></channel></rss>

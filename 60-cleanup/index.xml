@@ -4,4 +4,8 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;pnpm exec cdk destroy -c env&lt;span style="color:#f92672"&gt;=&lt;/span&gt;prod
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;それぞれ、削除してよいか確認されるので&lt;code&gt;y&lt;/code&gt;を入力します。&lt;/p&gt;
 &lt;pre tabindex="0"&gt;&lt;code&gt;Are you sure you want to delete: IacStack-dev (y/n)? y
-&lt;/code&gt;&lt;/pre&gt;</description></item></channel></rss>
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id="確認"&gt;確認&lt;/h2&gt;
+&lt;p&gt;AWS マネジメントコンソールの画面上部の検索窓に&lt;code&gt;CloudFormation&lt;/code&gt;と入力し、表示された&lt;code&gt;CloudFormation&lt;/code&gt;を選択します。&lt;/p&gt;
+&lt;p&gt;&lt;img src="../images/20-getting-started/search-cloudformation.png" alt="search CloudFormation"&gt;&lt;/p&gt;
+&lt;p&gt;スタックの一覧に&lt;code&gt;CDKToolkit&lt;/code&gt;以外のスタックが存在しないことを確認します。&lt;code&gt;IacStack-dev&lt;/code&gt;・&lt;code&gt;IacStack-prod&lt;/code&gt;が表示されていなければ、削除は完了です。&lt;/p&gt;
+&lt;p&gt;&lt;img src="../images/60-cleanup/stacks-list.png" alt="stacks list"&gt;&lt;/p&gt;</description></item></channel></rss>

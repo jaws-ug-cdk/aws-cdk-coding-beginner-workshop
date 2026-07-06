@@ -5,23 +5,36 @@ weight = 300
 
 ## 手順
 
-`iac` ディレクトリで実行します。
+いよいよCDKで実装したLambda関数をAWSへデプロイします。
+次のコマンドをGitHub Codespacesのターミナルで実行してください。
 
 ```bash
 pnpm exec cdk deploy
 ```
 
-## IAM変更の確認
+デプロイ中にCDKアプリが合成された後、IAM権限が変更されている箇所がリストアップされます。
+ここでは、Lambda 関数の実行ロール（IAMロール・ポリシー）が新規作成されています。
 
-Lambda 関数の実行ロール（IAMロール・ポリシー）が新規作成されるため、途中で変更内容の確認が表示されます。内容を確認し、`y` を入力してデプロイを続行します。
+```md
+IAM Statement Changes
+┌───┬─────────────────────────────┬────────┬────────────────┬──────────────────────────────┬───────────┐
+│   │ Resource                    │ Effect │ Action         │ Principal                    │ Condition │
+├───┼─────────────────────────────┼────────┼────────────────┼──────────────────────────────┼───────────┤
+│ + │ ${Function/ServiceRole.Arn} │ Allow  │ sts:AssumeRole │ Service:lambda.amazonaws.com │           │
+└───┴─────────────────────────────┴────────┴────────────────┴──────────────────────────────┴───────────┘
+IAM Policy Changes
+┌───┬─────────────────────────┬────────────────────────────────────────────────────────────────────────────────┐
+│   │ Resource                │ Managed Policy ARN                                                             │
+├───┼─────────────────────────┼────────────────────────────────────────────────────────────────────────────────┤
+│ + │ ${Function/ServiceRole} │ arn:${AWS::Partition}:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole │
+└───┴─────────────────────────┴────────────────────────────────────────────────────────────────────────────────┘
+```
+
+`y` を入力してデプロイを続行します。
 
 ```
 Do you wish to deploy these changes? (y/n) y
 ```
-
-{{% notice note %}}
-IAMロールやポリシーなど、セキュリティに関わるリソースの変更がある場合、`cdk deploy` はデフォルトで確認を挟みます。
-{{% /notice %}}
 
 ## 確認
 
@@ -33,15 +46,15 @@ AWS マネジメントコンソールの画面上部の検索窓に`CloudFormati
 
 ![stack resources](../images/30-first-app/stack-resources.png)
 
-Lambda関数のページに移動します。
+Lambda関数のページで「テスト」タブを開きます。
 
 ![lambda function page](../images/30-first-app/lambda-function-page.png)
 
-「テスト」タブを開き、画面右上の`テスト`ボタンをクリックして関数を実行します。
+画面右上の`テスト`ボタンをクリックして関数を実行します。
 
 ![lambda test button](../images/30-first-app/lambda-test-button.png)
 
-`"body": "Hello, CDK!"`が返ってくることを確認します。
+実行中の関数の詳細を開き、`"body": "Hello, CDK!"`が返ってくることを確認します。
 
 ![lambda test result](../images/30-first-app/lambda-test-result.png)
 

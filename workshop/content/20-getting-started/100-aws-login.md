@@ -1,11 +1,19 @@
 +++
 title = "AWSにログインする"
-weight = 300
+weight = 100
 +++
 
 ## 手順
 
-Codespaces のターミナルで以下を実行します。
+ブラウザからAWSアカウントにサインインします。
+
+https://console.aws.amazon.com/
+
+画面右上のリージョンが「東京」（`ap-northeast-1`）になっていることを確認します。違うリージョンになっている場合は、リージョンの一覧から「東京」を選択してください。
+
+![select region](../images/20-getting-started/select-region.png)
+
+続いて、GitHub Codespacesのターミナルで以下のコマンドを実行します。
 
 ```bash
 aws login --remote

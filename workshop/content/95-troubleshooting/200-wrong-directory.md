@@ -1,6 +1,6 @@
 +++
-title = "cdk diff・deployコマンドを実行したら「--app is required」エラーになる"
-weight = 300
+title = "「--app is required」エラー"
+weight = 200
 +++
 
 ## 症状

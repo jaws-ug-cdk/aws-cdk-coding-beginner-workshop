@@ -5,7 +5,7 @@ weight = 200
 
 ## Lambda関数を実装する
 
-`iac/lambda/write.ts` を開きます。
+`iac/lambda/write.ts` を開きます。GitHub Codespacesのターミナルで次のコマンドを実行します。
 
 ```bash
 code "$(git rev-parse --show-toplevel)/iac/lambda/write.ts"
@@ -42,7 +42,7 @@ export const handler = async (): Promise<{ statusCode: number; body: string }> =
 
 ## スタックを実装する
 
-`iac/lib/iac-stack.ts` を開きます。
+`iac/lib/iac-stack.ts` を開きます。ターミナルで次のコマンドを実行します。
 
 ```bash
 code "$(git rev-parse --show-toplevel)/iac/lib/iac-stack.ts"
@@ -80,6 +80,8 @@ export class IacStack extends cdk.Stack {
 
 ## 差分を確認する
 
+次のコマンドをターミナルで実行します。
+
 ```bash
 pnpm exec cdk diff
 ```
@@ -92,8 +94,8 @@ Resources
 [~] AWS::Lambda::Function Function Function76856677
  ├─ [~] Code
  │   └─ [~] .S3Key:
- │       ├─ [-] 381bee9be0df3581b7129445475a6cbf7ee4d34efa8a7c5e1246826698e71048.zip
- │       └─ [+] ea3c8139d040e379c0f95e9f72661ac6b1e8e25ada09c5a318871b1838ce77f9.zip
+ │       ├─ [-] <古いasset-hash>.zip
+ │       └─ [+] <新しいasset-hash>.zip
  └─ [+] Environment
      └─ {"Variables":{"TABLE_NAME":{"Ref":"ItemTable276B2AC8"}}}
 ```
@@ -105,26 +107,18 @@ Resources
 
 ## デプロイする
 
+次のコマンドをターミナルで実行します。
+
 ```bash
 pnpm exec cdk deploy
 ```
 
 ## 確認
 
-AWS マネジメントコンソールの画面上部の検索窓に`CloudFormation`と入力し、表示された`CloudFormation`を選択します。
-
-![search CloudFormation](../images/20-getting-started/search-cloudformation.png)
-
-`IacStack-dev`スタックを開きます。「リソース」タブで`ItemTable`を展開し、`AWS::DynamoDB::Table`が`CREATE_COMPLETE`になっていることを確認します。物理IDリンクをクリックするとDynamoDBのテーブルページに移動します。
+`IacStack-dev`スタックを再度開きます。「リソース」タブで`ItemTable`を展開すると、`AWS::DynamoDB::Table`が`CREATE_COMPLETE`になっています。
 
 ![stack resources](../images/40-add-resource/dynamodb-stack-resources.png)
-
-テーブルが作成されていることを確認します。
-
-![dynamodb table page](../images/40-add-resource/dynamodb-table-page.png)
 
 この時点では、Lambda 関数に DynamoDB テーブルへの書き込み権限はまだありません。試しにLambda関数のページで「テスト」タブからテストを実行すると、`AccessDeniedException`で失敗します。
 
 ![lambda test fail](../images/40-add-resource/lambda-test-fail.png)
-
-`dynamodb:PutItem`を実行する権限がないため、書き込みに失敗しています。次の章でこの権限を付与します。

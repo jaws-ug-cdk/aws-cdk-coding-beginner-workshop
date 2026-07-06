@@ -5,7 +5,7 @@ weight = 100
 
 ## スタックを実装する
 
-`iac/lib/iac-stack.ts` を開きます。
+`iac/lib/iac-stack.ts` を開きます。GitHub Codespacesのターミナルで次のコマンドを実行します。
 
 ```bash
 code "$(git rev-parse --show-toplevel)/iac/lib/iac-stack.ts"
@@ -34,7 +34,7 @@ export class IacStack extends cdk.Stack {
 
 ## 差分を確認する
 
-`iac` ディレクトリで実行します。
+次のコマンドをターミナルで実行します。
 
 ```bash
 pnpm exec cdk diff
@@ -57,16 +57,23 @@ Resources
 
 ## デプロイする
 
+次のコマンドをターミナルで実行します。
+
 ```bash
 pnpm exec cdk deploy
 ```
 
 ## 確認
 
-AWS マネジメントコンソールの画面上部の検索窓に`CloudFormation`と入力し、表示された`CloudFormation`を選択します。`IacStack-dev`スタックを開き、「リソース」タブで`Function`を展開して`AWS::Lambda::Function`の物理IDリンクをクリックし、Lambda関数のページに移動します。
+先ほど開いたLambda関数を再度開きます。
 
 ![lambda function page](../images/40-add-resource/lambda-function-page.png)
 
 「設定」タブを開き、メモリが`256 MB`に変更されていることを確認します。
+
+{{% notice note %}}
+メモリの設定が`128 MB`のままであれば、画面を再読み込みした上で再度確認してください。
+{{% /notice %}}
+
 
 ![lambda memory size](../images/40-add-resource/lambda-memory-size.png)

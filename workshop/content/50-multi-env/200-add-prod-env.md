@@ -1,11 +1,11 @@
 +++
-title = "prod環境を追加する"
+title = "本番環境を追加する"
 weight = 200
 +++
 
 ## 設定ファイルを更新する
 
-`iac/lib/config.ts` を開きます。
+`iac/lib/config.ts` を開きます。GitHub Codespacesのターミナルで次のコマンドを実行します。
 
 ```bash
 code "$(git rev-parse --show-toplevel)/iac/lib/config.ts"
@@ -34,12 +34,6 @@ export const getConfig = (env: string): EnvConfig => {
   }
   return config;
 };
-```
-
-## 合成する
-
-```bash
-pnpm exec cdk synth -c env=prod
 ```
 
 ## デプロイする

@@ -148,3 +148,28 @@ div.notices p:first-child:before {
     font-weight: 900; /* Fix version 5.0.9 */
     left: 10px;
 }
+
+.link-card {
+    display: block;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 1rem 1.25rem;
+    margin: 1rem 0;
+    text-decoration: none !important;
+    color: inherit;
+    transition: background 0.15s ease;
+}
+.link-card:hover {
+    background: #f6f6f6;
+}
+.link-card-title {
+    font-weight: 700;
+    font-size: 1.05rem;
+    color: #222;
+}
+.link-card-url {
+    font-size: 0.85rem;
+    color: #888;
+    margin-top: 0.35rem;
+    word-break: break-all;
+}

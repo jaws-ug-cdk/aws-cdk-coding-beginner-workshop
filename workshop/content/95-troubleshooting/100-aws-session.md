@@ -1,6 +1,6 @@
 +++
-title = "cdk diff・deployコマンドを実行したら「Unable to resolve AWS account」エラーになる"
-weight = 200
+title = "「Unable to resolve AWS account」エラー"
+weight = 100
 +++
 
 ## 症状
@@ -19,4 +19,4 @@ Unable to resolve AWS account to use. It must be either configured when you defi
 aws login --remote
 ```
 
-あとは[AWSにログインする]({{< ref "/20-getting-started/300-aws-login" >}})の手順と同じです。
+あとは[AWSにログインする]({{< ref "/20-getting-started/100-aws-login" >}})の手順と同じです。

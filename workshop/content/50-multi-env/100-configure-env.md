@@ -5,7 +5,7 @@ weight = 100
 
 ## 設定ファイルを実装する
 
-`iac/lib/config.ts` を開きます。
+`iac/lib/config.ts` を開きます。GitHub Codespacesのターミナルで次のコマンドを実行します。
 
 ```bash
 code "$(git rev-parse --show-toplevel)/iac/lib/config.ts"
@@ -37,7 +37,7 @@ export const getConfig = (env: string): EnvConfig => {
 
 ## エントリポイントを実装する
 
-`iac/bin/iac.ts` を開きます。
+`iac/bin/iac.ts` を開きます。ターミナルで次のコマンドを実行します。
 
 ```bash
 code "$(git rev-parse --show-toplevel)/iac/bin/iac.ts"
@@ -64,7 +64,7 @@ new IacStack(app, `IacStack-${env}`, { config });
 
 ## スタックを実装する
 
-`iac/lib/iac-stack.ts` を開きます。
+`iac/lib/iac-stack.ts` を開きます。ターミナルで次のコマンドを実行します。
 
 ```bash
 code "$(git rev-parse --show-toplevel)/iac/lib/iac-stack.ts"
@@ -109,7 +109,7 @@ export class IacStack extends cdk.Stack {
 
 ## 差分を確認する
 
-`dev` の設定値は、これまでデプロイしてきた内容と同じなので、差分は出ません。
+開発環境の設定値はこれまでデプロイしてきた内容と同じなので、差分は出ません。
 
 ```bash
 pnpm exec cdk diff -c env=dev
@@ -120,6 +120,8 @@ pnpm exec cdk diff -c env=dev
 ```
 Stack IacStack-dev
 There were no differences
+
+✨  Number of stacks with differences: 0
 ```
 
 差分が無いということはデプロイ内容に変更が無いということなので、ここでの`cdk deploy`は不要です。

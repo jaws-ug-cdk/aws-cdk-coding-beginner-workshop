@@ -1,13 +1,13 @@
 +++
 title = "CDK Bootstrap"
-weight = 500
+weight = 300
 +++
 
 <!-- TODO: cdk bootstrapが何のために必要か（CDKToolkitスタック・デプロイ用アセットの置き場所など）を説明する -->
 
 ## 手順
 
-`iac` ディレクトリで実行します。
+AWSアカウントにてCDKデプロイできるように`cdk bootstrap`コマンドを実行します。
 
 ```bash
 pnpm exec cdk bootstrap

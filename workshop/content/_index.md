@@ -6,50 +6,31 @@ weight: 1
 
 # Welcome!
 
-AWS CDK を初めて学ぶ人向けのハンズオンです。Lambda 関数と DynamoDB テーブルを持つ CDK アプリを作りながら、複数環境（dev / prod）へのデプロイまで一通り体験します。
+AWS CDK を初めて学ぶ人向けのハンズオンです。CDKを使って簡単なサーバーレスアーキテクチャを構築します。
 
-## 必要なもの
+プログラミングが苦手な方や未経験の方でも気軽に取り組めるので、CDKの最初の一歩にぴったりです。
 
-- GitHub アカウント
-- AWS アカウント（`AdministratorAccess`相当の権限が必要です）
+このワークショップを通じて、CDKでAWSインフラを構築するイメージを掴んでいただければ幸いです。
 
-{{% notice tip %}}
-手順の途中で何か詰まったら、付録の[トラブルシューティング]({{< ref "/95-troubleshooting" >}})を確認してください。
-{{% /notice %}}
+## このワークショップで扱うこと
 
-{{% notice tip %}}
-コマンドやコードは手入力せず、すべてコピー&ペーストで進めてください。
-{{% /notice %}}
+- CDKでインフラを新規作成し、AWSへデプロイする
+- リソースを変更し、変更内容を確認する
+- 必要なアクセス権限を簡単に付与する
+- 複数の環境にそれぞれ適した設定でデプロイする
 
-このワークショップを終えると、次のことができるようになります。
+## 事前準備
 
-- CDK アプリを新規作成し、AWS へデプロイする
-- リソースを追加・変更し、`cdk diff` で差分を確認してからデプロイする
-- IAM 権限（Grants）を適切に付与する
-- `context` を使って環境（dev / prod）ごとに異なる設定でデプロイする
+### GitHubアカウント
 
-## このワークショップの構成
+持っていない方は作成してください。
 
-左メニューの章立てに沿って進めます（番号の昇順）。
+{{< linkcard title="GitHubでのアカウントの作成" url="https://docs.github.com/ja/get-started/start-your-journey/creating-an-account-on-github" >}}
 
-1. はじめに
-2. 環境準備
-3. 最初のアプリを作る
-4. アプリを更新する
-5. 複数環境にデプロイする
-6. 後片付け
-7. まとめ
+### 新規AWSアカウント
 
-「トラブルシューティング」は付録なので、上の番号には含まれません。困ったときに参照してください。
+新規AWSアカウントを発行することを推奨します。
 
-## See Also
+{{< linkcard title="AWS アカウント作成の流れ" url="https://aws.amazon.com/jp/register-flow/" >}}
 
-- [AWS CDK Developer Guide](https://docs.aws.amazon.com/cdk/v2/guide/)
-- [AWS CDK API Reference](https://docs.aws.amazon.com/cdk/api/v2/)
-- [Construct Hub](https://constructs.dev/)
-
-{{% notice note %}}
-**免責・帰属**: 本資料は [AWS CDK Workshop](https://cdkworkshop.com/) のフォーマットを基に
-JAWS-UG CDK 支部のメンバーが作成したものです。本資料は AWS による公認・後援・提携を示すものではありません。
-AWS、Amazon、AWS CDK などは Amazon.com, Inc. またはその関連会社の商標です。
-{{% /notice %}}
+アカウントプランは有料を選択ください。

@@ -1,23 +1,16 @@
 +++
-title = "ツールのインストール"
-weight = 200
+title = "はじめる前に"
+weight = 100
 +++
 
-## このページについて
-
-このハンズオンでは [GitHub Codespaces](https://github.co.jp/features/codespaces) を使って進めます！
-
 ## 手順
+
+このワークショップでは [GitHub Codespaces](https://github.co.jp/features/codespaces) を使って進めます。起動に数分かかるため、最初に立ち上げておきましょう。
 
 ### 1. リポジトリを作成する
 
 以下のリンクをクリックして、新しいGitHubリポジトリを作成します。
-
-[https://github.com/codespaces/new?template_repository={{< templaterepo >}}](https://github.com/codespaces/new?template_repository={{< templaterepo >}})
-
-{{% notice warning %}}
-「Resume codespace」というタイトルの画面が表示され、下部に`Create a new one`と`Resume`という2つのボタンが並んでいることがあります。その場合は`Create a new one`を選んでください。
-{{% /notice %}}
+[https://github.com/new?template_name=cdk-workshop-template&template_owner=jaws-ug-cdk](https://github.com/new?template_name=cdk-workshop-template&template_owner=jaws-ug-cdk)
 
 以下を設定して`Create repository`ボタンを押してリポジトリを作成します。
 
@@ -28,7 +21,6 @@ weight = 200
 `yyyymmdd`の部分は今日の日付に置き換えてください（例: 2026年7月2日なら`20260702`）。何度もこのワークショップに参加してリポジトリを作り直しても、日付が違えば名前が重複しません。
 {{% /notice %}}
 
-
 ![create repository](../images/20-getting-started/create-repository.png)
 
 ### 2. GitHub Codespacesを起動する
@@ -37,7 +29,7 @@ weight = 200
 
 ![create codespaces](../images/20-getting-started/create-codespaces.png)
 
-すると画面が遷移してCodespacesが作成されるのでしばらく待ちます。
+画面が遷移してCodespacesが作成されます。起動を待っている間に、次のページを読み進めてください。
 
 このような画面になったら起動完了です！
 

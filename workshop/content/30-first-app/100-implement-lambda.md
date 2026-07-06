@@ -5,13 +5,13 @@ weight = 100
 
 ## Lambda関数を実装する
 
-`iac/lambda/hello.ts` を開きます。
+`iac/lambda/hello.ts` を開きます。GitHub Codespacesのターミナルで次のコマンドを実行します。
 
 ```bash
 code "$(git rev-parse --show-toplevel)/iac/lambda/hello.ts"
 ```
 
-以下の内容に書き換えます。
+開いたファイルを以下の内容に書き換えます。
 
 ```typescript
 export const handler = async (): Promise<{ statusCode: number; body: string }> => {
@@ -26,13 +26,13 @@ export const handler = async (): Promise<{ statusCode: number; body: string }> =
 
 ## スタックを実装する
 
-`iac/lib/iac-stack.ts` を開きます。
+`iac/lib/iac-stack.ts` を開きます。ターミナルで次のコマンドを実行します。
 
 ```bash
 code "$(git rev-parse --show-toplevel)/iac/lib/iac-stack.ts"
 ```
 
-以下の内容に**全体を書き換えます**。
+開いたファイルを以下の内容に書き換えます。
 
 ```typescript
 import * as cdk from 'aws-cdk-lib/core';
@@ -56,13 +56,13 @@ export class IacStack extends cdk.Stack {
 
 ## エントリポイントを実装する
 
-`iac/bin/iac.ts` を開きます。
+`iac/bin/iac.ts` を開きますターミナルで次のコマンドを実行します。
 
 ```bash
 code "$(git rev-parse --show-toplevel)/iac/bin/iac.ts"
 ```
 
-以下の内容に**全体を書き換えます**。スタック名に `dev` を含めておきます。
+開いたファイルを以下の内容に書き換えます。
 
 ```typescript
 #!/usr/bin/env node

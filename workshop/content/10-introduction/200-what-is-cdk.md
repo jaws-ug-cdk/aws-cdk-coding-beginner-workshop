@@ -3,16 +3,17 @@ title = "AWS CDKとは"
 weight = 200
 +++
 
-インフラリソースをコードで定義し、その定義ファイルをもとに構築する手法を、IaC（Infrastructure as Code）と呼びます。「リソースの状態」を管理し、定義ファイルとの差分を検出して変更点だけを反映するという仕組みです。
+インフラリソースをコードで定義し、その定義ファイルをもとに構築する手法をIaC（Infrastructure as Code）と呼びます。
+インフラリソースを管理するための状態管理の仕組みを持ち、管理対象とインフラ定義との間に差分があればインフラリソースを変更する仕組みになっています。
 
 ![whats iac](../images/10-introduction/whats-iac.dio.png)
 
-AWS CDKは、IaCを実現するツールの1つで、定義ファイルをTypeScriptなどの**プログラミング言語**で書けるのが特徴です。
+AWS CDKはIaCを実現するツールの1つです。定義ファイルをTypeScriptなどの**プログラミング言語**で書けるのが特徴です。
 AWSへデプロイすると「スタック」という単位で管理され、スタックによりリソースの状態が保持されます。
 
 ![whats cdk](../images/10-introduction/whats-cdk.dio.png)
 
-AWS CDKは裏側でAWS CloudFormationを利用しています。
+AWS CDKの裏側ではAWS CloudFormationを利用しています。
 
 CloudFormationはAWSリソースをJSON/YAMLファイルとして定義できるIaCサービスです。
 CDKで書いたコードがCloudFormationテンプレートに変換され、そのテンプレートをCloudFormationがデプロイします。

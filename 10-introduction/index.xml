@@ -25,12 +25,13 @@
 
 &lt;div class="notices tip" &gt;&lt;p&gt;コマンドが動かなくなった場合は、&lt;a href="https://jaws-ug-cdk.github.io/aws-cdk-coding-beginner-workshop/95-troubleshooting/index.html"&gt;トラブルシューティング&lt;/a&gt;
 を確認してください。&lt;/p&gt;
-&lt;/div&gt;</description></item><item><title>AWS CDKとは</title><link>https://jaws-ug-cdk.github.io/aws-cdk-coding-beginner-workshop/10-introduction/200-what-is-cdk.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://jaws-ug-cdk.github.io/aws-cdk-coding-beginner-workshop/10-introduction/200-what-is-cdk.html</guid><description>&lt;p&gt;インフラリソースをコードで定義し、その定義ファイルをもとに構築する手法を、IaC（Infrastructure as Code）と呼びます。「リソースの状態」を管理し、定義ファイルとの差分を検出して変更点だけを反映するという仕組みです。&lt;/p&gt;
+&lt;/div&gt;</description></item><item><title>AWS CDKとは</title><link>https://jaws-ug-cdk.github.io/aws-cdk-coding-beginner-workshop/10-introduction/200-what-is-cdk.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://jaws-ug-cdk.github.io/aws-cdk-coding-beginner-workshop/10-introduction/200-what-is-cdk.html</guid><description>&lt;p&gt;インフラリソースをコードで定義し、その定義ファイルをもとに構築する手法をIaC（Infrastructure as Code）と呼びます。
+インフラリソースを管理するための状態管理の仕組みを持ち、管理対象とインフラ定義との間に差分があればインフラリソースを変更する仕組みになっています。&lt;/p&gt;
 &lt;p&gt;&lt;img src="../images/10-introduction/whats-iac.dio.png" alt="whats iac"&gt;&lt;/p&gt;
-&lt;p&gt;AWS CDKは、IaCを実現するツールの1つで、定義ファイルをTypeScriptなどの&lt;strong&gt;プログラミング言語&lt;/strong&gt;で書けるのが特徴です。
+&lt;p&gt;AWS CDKはIaCを実現するツールの1つです。定義ファイルをTypeScriptなどの&lt;strong&gt;プログラミング言語&lt;/strong&gt;で書けるのが特徴です。
 AWSへデプロイすると「スタック」という単位で管理され、スタックによりリソースの状態が保持されます。&lt;/p&gt;
 &lt;p&gt;&lt;img src="../images/10-introduction/whats-cdk.dio.png" alt="whats cdk"&gt;&lt;/p&gt;
-&lt;p&gt;AWS CDKは裏側でAWS CloudFormationを利用しています。&lt;/p&gt;
+&lt;p&gt;AWS CDKの裏側ではAWS CloudFormationを利用しています。&lt;/p&gt;
 &lt;p&gt;CloudFormationはAWSリソースをJSON/YAMLファイルとして定義できるIaCサービスです。
 CDKで書いたコードがCloudFormationテンプレートに変換され、そのテンプレートをCloudFormationがデプロイします。&lt;/p&gt;
 &lt;p&gt;CDKがCloudFormationを抽象化していることにより、少ないコード量で本質的なインフラの設定を表現できます。&lt;/p&gt;

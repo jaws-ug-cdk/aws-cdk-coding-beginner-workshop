@@ -60,6 +60,7 @@ IAM Statement Changes
 ├───┼──────────────────┼────────┼───────────────────────────────────────┼──────────────────────────────┼───────────┤
 │ + │ ${ItemTable.Arn} │ Allow  │ dynamodb:BatchWriteItem               │ AWS:${Function/ServiceRole}   │           │
 │   │                  │        │ dynamodb:DeleteItem                   │                               │           │
+│   │                  │        │ dynamodb:DescribeTable                │                               │           │
 │   │                  │        │ dynamodb:PutItem                      │                               │           │
 │   │                  │        │ dynamodb:UpdateItem                   │                               │           │
 └───┴──────────────────┴────────┴───────────────────────────────────────┴──────────────────────────────┴───────────┘

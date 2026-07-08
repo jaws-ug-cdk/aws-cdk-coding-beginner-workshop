@@ -36,6 +36,7 @@ parent"><a href=/aws-cdk-coding-beginner-workshop/40-add-resource/index.html>ア
 ├───┼──────────────────┼────────┼───────────────────────────────────────┼──────────────────────────────┼───────────┤
 │ + │ ${ItemTable.Arn} │ Allow  │ dynamodb:BatchWriteItem               │ AWS:${Function/ServiceRole}   │           │
 │   │                  │        │ dynamodb:DeleteItem                   │                               │           │
+│   │                  │        │ dynamodb:DescribeTable                │                               │           │
 │   │                  │        │ dynamodb:PutItem                      │                               │           │
 │   │                  │        │ dynamodb:UpdateItem                   │                               │           │
 └───┴──────────────────┴────────┴───────────────────────────────────────┴──────────────────────────────┴───────────┘

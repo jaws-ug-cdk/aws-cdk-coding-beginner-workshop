@@ -58,6 +58,12 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;import&lt;/span&gt; { &lt;span style="color:#a6e22e"&gt;IacStack&lt;/span&gt; } &lt;span style="color:#66d9ef"&gt;from&lt;/span&gt; &lt;span style="color:#e6db74"&gt;&amp;#39;../lib/iac-stack&amp;#39;&lt;/span&gt;;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;const&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;app&lt;/span&gt; &lt;span style="color:#f92672"&gt;=&lt;/span&gt; &lt;span style="color:#66d9ef"&gt;new&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;cdk&lt;/span&gt;.&lt;span style="color:#a6e22e"&gt;App&lt;/span&gt;();
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;/**
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt; * スタック削除時のポリシーを「リソースを削除する」に設定する。
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt; * DynamoDB などのステートフルなリソースはデフォルトで「リソースを保持する」
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt; * ポリシーになっているため、スタックを削除してもリソースが残り続ける。
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt; * ワークショップではリソースの後片付けを簡単にするため、一括で削除する設定にしている。
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt; */&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#a6e22e"&gt;cdk&lt;/span&gt;.&lt;span style="color:#a6e22e"&gt;RemovalPolicies&lt;/span&gt;.&lt;span style="color:#66d9ef"&gt;of&lt;/span&gt;(&lt;span style="color:#a6e22e"&gt;app&lt;/span&gt;).&lt;span style="color:#a6e22e"&gt;destroy&lt;/span&gt;();
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;new&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;IacStack&lt;/span&gt;(&lt;span style="color:#a6e22e"&gt;app&lt;/span&gt;, &lt;span style="color:#e6db74"&gt;&amp;#39;IacStack-dev&amp;#39;&lt;/span&gt;);
@@ -168,12 +174,18 @@ Resources
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex; background-color:#3c3d38"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;import&lt;/span&gt; { &lt;span style="color:#a6e22e"&gt;getConfig&lt;/span&gt; } &lt;span style="color:#66d9ef"&gt;from&lt;/span&gt; &lt;span style="color:#e6db74"&gt;&amp;#39;../lib/config&amp;#39;&lt;/span&gt;;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;const&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;app&lt;/span&gt; &lt;span style="color:#f92672"&gt;=&lt;/span&gt; &lt;span style="color:#66d9ef"&gt;new&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;cdk&lt;/span&gt;.&lt;span style="color:#a6e22e"&gt;App&lt;/span&gt;();
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;/**
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt; * スタック削除時のポリシーを「リソースを削除する」に設定する。
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex; background-color:#3c3d38"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt; * DynamoDB などのステートフルなリソースはデフォルトで「リソースを保持する」
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex; background-color:#3c3d38"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt; * ポリシーになっているため、スタックを削除してもリソースが残り続ける。
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt; * ワークショップではリソースの後片付けを簡単にするため、一括で削除する設定にしている。
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex; background-color:#3c3d38"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt; */&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#a6e22e"&gt;cdk&lt;/span&gt;.&lt;span style="color:#a6e22e"&gt;RemovalPolicies&lt;/span&gt;.&lt;span style="color:#66d9ef"&gt;of&lt;/span&gt;(&lt;span style="color:#a6e22e"&gt;app&lt;/span&gt;).&lt;span style="color:#a6e22e"&gt;destroy&lt;/span&gt;();
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex; background-color:#3c3d38"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;const&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;env&lt;/span&gt;: &lt;span style="color:#66d9ef"&gt;string&lt;/span&gt; &lt;span style="color:#f92672"&gt;=&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;app&lt;/span&gt;.&lt;span style="color:#a6e22e"&gt;node&lt;/span&gt;.&lt;span style="color:#a6e22e"&gt;tryGetContext&lt;/span&gt;(&lt;span style="color:#e6db74"&gt;&amp;#39;env&amp;#39;&lt;/span&gt;) &lt;span style="color:#f92672"&gt;??&lt;/span&gt; &lt;span style="color:#e6db74"&gt;&amp;#39;dev&amp;#39;&lt;/span&gt;;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex; background-color:#3c3d38"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;const&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;config&lt;/span&gt; &lt;span style="color:#f92672"&gt;=&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;getConfig&lt;/span&gt;(&lt;span style="color:#a6e22e"&gt;env&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;const&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;env&lt;/span&gt;: &lt;span style="color:#66d9ef"&gt;string&lt;/span&gt; &lt;span style="color:#f92672"&gt;=&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;app&lt;/span&gt;.&lt;span style="color:#a6e22e"&gt;node&lt;/span&gt;.&lt;span style="color:#a6e22e"&gt;tryGetContext&lt;/span&gt;(&lt;span style="color:#e6db74"&gt;&amp;#39;env&amp;#39;&lt;/span&gt;) &lt;span style="color:#f92672"&gt;??&lt;/span&gt; &lt;span style="color:#e6db74"&gt;&amp;#39;dev&amp;#39;&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;const&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;config&lt;/span&gt; &lt;span style="color:#f92672"&gt;=&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;getConfig&lt;/span&gt;(&lt;span style="color:#a6e22e"&gt;env&lt;/span&gt;);
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex; background-color:#3c3d38"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;new&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;IacStack&lt;/span&gt;(&lt;span style="color:#a6e22e"&gt;app&lt;/span&gt;, &lt;span style="color:#e6db74"&gt;`IacStack-&lt;/span&gt;&lt;span style="color:#e6db74"&gt;${&lt;/span&gt;&lt;span style="color:#a6e22e"&gt;env&lt;/span&gt;&lt;span style="color:#e6db74"&gt;}&lt;/span&gt;&lt;span style="color:#e6db74"&gt;`&lt;/span&gt;, { &lt;span style="color:#a6e22e"&gt;config&lt;/span&gt; });
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;new&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;IacStack&lt;/span&gt;(&lt;span style="color:#a6e22e"&gt;app&lt;/span&gt;, &lt;span style="color:#e6db74"&gt;`IacStack-&lt;/span&gt;&lt;span style="color:#e6db74"&gt;${&lt;/span&gt;&lt;span style="color:#a6e22e"&gt;env&lt;/span&gt;&lt;span style="color:#e6db74"&gt;}&lt;/span&gt;&lt;span style="color:#e6db74"&gt;`&lt;/span&gt;, { &lt;span style="color:#a6e22e"&gt;config&lt;/span&gt; });
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;スタック名は、これまでの &lt;code&gt;IacStack-dev&lt;/code&gt; と同じ文字列になるように組み立てています。&lt;/p&gt;</description></item><item><title>「--app is required」エラー</title><link>https://jaws-ug-cdk.github.io/aws-cdk-coding-beginner-workshop/95-troubleshooting/200-wrong-directory.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://jaws-ug-cdk.github.io/aws-cdk-coding-beginner-workshop/95-troubleshooting/200-wrong-directory.html</guid><description>&lt;h2 id="症状"&gt;症状&lt;/h2&gt;
 &lt;p&gt;&lt;code&gt;iac&lt;/code&gt; ディレクトリではなく、リポジトリのルートなど別の場所で &lt;code&gt;pnpm exec cdk diff&lt;/code&gt; や &lt;code&gt;pnpm exec cdk deploy&lt;/code&gt; を実行すると、以下のようなエラーになります。&lt;/p&gt;
 &lt;pre tabindex="0"&gt;&lt;code&gt;--app is required either in command-line, in cdk.json or in ~/.cdk.json
@@ -354,27 +366,19 @@ CDKで書いたコードがCloudFormationテンプレートに変換され、そ
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; },
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; });
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex; background-color:#3c3d38"&gt;&lt;span&gt; &lt;span style="color:#a6e22e"&gt;table&lt;/span&gt;.&lt;span style="color:#a6e22e"&gt;grants&lt;/span&gt;.&lt;span style="color:#a6e22e"&gt;readWriteData&lt;/span&gt;(&lt;span style="color:#a6e22e"&gt;writeFunction&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex; background-color:#3c3d38"&gt;&lt;span&gt; &lt;span style="color:#a6e22e"&gt;table&lt;/span&gt;.&lt;span style="color:#a6e22e"&gt;grants&lt;/span&gt;.&lt;span style="color:#a6e22e"&gt;writeData&lt;/span&gt;(&lt;span style="color:#a6e22e"&gt;writeFunction&lt;/span&gt;);
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; }
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;}
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="差分を確認する"&gt;差分を確認する&lt;/h2&gt;
 &lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;pnpm exec cdk diff
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;権限の差分では、DynamoDBテーブルに対してLambda関数から読み書きできる権限が付与されています。&lt;/p&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;権限の差分では、DynamoDBテーブルに対してLambda関数から書き込みできる権限が付与されています。&lt;/p&gt;
 &lt;pre tabindex="0"&gt;&lt;code&gt;IAM Statement Changes
 ┌───┬──────────────────┬────────┬───────────────────────────────────────┬──────────────────────────────┬───────────┐
 │ │ Resource │ Effect │ Action │ Principal │ Condition │
 ├───┼──────────────────┼────────┼───────────────────────────────────────┼──────────────────────────────┼───────────┤
-│ + │ ${ItemTable.Arn} │ Allow │ dynamodb:BatchGetItem │ AWS:${Function/ServiceRole} │ │
-│ │ │ │ dynamodb:BatchWriteItem │ │ │
-│ │ │ │ dynamodb:ConditionCheckItem │ │ │
+│ + │ ${ItemTable.Arn} │ Allow │ dynamodb:BatchWriteItem │ AWS:${Function/ServiceRole} │ │
 │ │ │ │ dynamodb:DeleteItem │ │ │
-│ │ │ │ dynamodb:DescribeTable │ │ │
-│ │ │ │ dynamodb:GetItem │ │ │
-│ │ │ │ dynamodb:GetRecords │ │ │
-│ │ │ │ dynamodb:GetShardIterator │ │ │
 │ │ │ │ dynamodb:PutItem │ │ │
-│ │ │ │ dynamodb:Query │ │ │
-│ │ │ │ dynamodb:Scan │ │ │
 │ │ │ │ dynamodb:UpdateItem │ │ │
 └───┴──────────────────┴────────┴───────────────────────────────────────┴──────────────────────────────┴───────────┘
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;リソースの差分では、Lambda関数が利用しているIAMロールに新しいポリシーが追加されています。&lt;/p&gt;</description></item><item><title>デプロイする</title><link>https://jaws-ug-cdk.github.io/aws-cdk-coding-beginner-workshop/30-first-app/300-deploy.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://jaws-ug-cdk.github.io/aws-cdk-coding-beginner-workshop/30-first-app/300-deploy.html</guid><description>&lt;h2 id="手順"&gt;手順&lt;/h2&gt;

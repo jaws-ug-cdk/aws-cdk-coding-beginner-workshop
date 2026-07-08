@@ -26,25 +26,17 @@ parent"><a href=/aws-cdk-coding-beginner-workshop/40-add-resource/index.html>ア
 </span></span><span style=display:flex><span>      },
 </span></span><span style=display:flex><span>    });
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex;background-color:#3c3d38><span>    <span style=color:#a6e22e>table</span>.<span style=color:#a6e22e>grants</span>.<span style=color:#a6e22e>readWriteData</span>(<span style=color:#a6e22e>writeFunction</span>);
+</span></span><span style=display:flex;background-color:#3c3d38><span>    <span style=color:#a6e22e>table</span>.<span style=color:#a6e22e>grants</span>.<span style=color:#a6e22e>writeData</span>(<span style=color:#a6e22e>writeFunction</span>);
 </span></span><span style=display:flex><span>  }
 </span></span><span style=display:flex><span>}
 </span></span></code></pre></div><h2 id=差分を確認する>差分を確認する</h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span>pnpm exec cdk diff
-</span></span></code></pre></div><p>権限の差分では、DynamoDBテーブルに対してLambda関数から読み書きできる権限が付与されています。</p><pre tabindex=0><code>IAM Statement Changes
+</span></span></code></pre></div><p>権限の差分では、DynamoDBテーブルに対してLambda関数から書き込みできる権限が付与されています。</p><pre tabindex=0><code>IAM Statement Changes
 ┌───┬──────────────────┬────────┬───────────────────────────────────────┬──────────────────────────────┬───────────┐
 │   │ Resource         │ Effect │ Action                                │ Principal                     │ Condition │
 ├───┼──────────────────┼────────┼───────────────────────────────────────┼──────────────────────────────┼───────────┤
-│ + │ ${ItemTable.Arn} │ Allow  │ dynamodb:BatchGetItem                 │ AWS:${Function/ServiceRole}   │           │
-│   │                  │        │ dynamodb:BatchWriteItem               │                               │           │
-│   │                  │        │ dynamodb:ConditionCheckItem           │                               │           │
+│ + │ ${ItemTable.Arn} │ Allow  │ dynamodb:BatchWriteItem               │ AWS:${Function/ServiceRole}   │           │
 │   │                  │        │ dynamodb:DeleteItem                   │                               │           │
-│   │                  │        │ dynamodb:DescribeTable                │                               │           │
-│   │                  │        │ dynamodb:GetItem                      │                               │           │
-│   │                  │        │ dynamodb:GetRecords                   │                               │           │
-│   │                  │        │ dynamodb:GetShardIterator             │                               │           │
 │   │                  │        │ dynamodb:PutItem                      │                               │           │
-│   │                  │        │ dynamodb:Query                        │                               │           │
-│   │                  │        │ dynamodb:Scan                         │                               │           │
 │   │                  │        │ dynamodb:UpdateItem                   │                               │           │
 └───┴──────────────────┴────────┴───────────────────────────────────────┴──────────────────────────────┴───────────┘
 </code></pre><p>リソースの差分では、Lambda関数が利用しているIAMロールに新しいポリシーが追加されています。</p><pre tabindex=0><code>Resources
@@ -57,7 +49,7 @@ parent"><a href=/aws-cdk-coding-beginner-workshop/40-add-resource/index.html>ア
         [+]   &#34;FunctionServiceRole675BB04A&#34;,
         [+]   &#34;FunctionServiceRoleDefaultPolicy2F49994A&#34;
         [ ] ]
-</code></pre><ul><li><code>IAM Statement Changes</code> … DynamoDBテーブルへの読み書きを許可するIAMポリシーが追加されている</li><li><code>[+] AWS::IAM::Policy</code> … 新しいIAMポリシーが作成される</li><li><code>[~] AWS::Lambda::Function</code> … Lambda関数に対して新しく作成したポリシーへの依存関係が追加されている</li></ul><h2 id=デプロイする>デプロイする</h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span>pnpm exec cdk deploy
+</code></pre><ul><li><code>IAM Statement Changes</code> … DynamoDBテーブルへの書き込みを許可するIAMポリシーが追加されている</li><li><code>[+] AWS::IAM::Policy</code> … 新しいIAMポリシーが作成される</li><li><code>[~] AWS::Lambda::Function</code> … Lambda関数に対して新しく作成したポリシーへの依存関係が追加されている</li></ul><h2 id=デプロイする>デプロイする</h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span>pnpm exec cdk deploy
 </span></span></code></pre></div><p>新しいIAMポリシーが追加されるため、<a href=/aws-cdk-coding-beginner-workshop/amp/30-first-app/300-deploy.html>最初のアプリを作る</a>
 の時と同じくIAM変更の確認が表示されます。<code>y</code>を入力してデプロイを続行します。</p><pre tabindex=0><code>Do you wish to deploy these changes? (y/n) y
 </code></pre><h2 id=確認>確認</h2><p>Lambda関数のページの「テスト」タブでもう一度テストを実行すると、今度は成功します。</p><p><img src=../images/40-add-resource/lambda-test-success.png alt="lambda test success"></p><p>前の章では権限不足で実行できませんでしたが、<code>Grants</code>で付与した権限によりDynamoDBへの書き込みができるようになりました。</p><p><code>IacStack-dev</code>スタックの「リソース」タブから<code>ItemTable</code>の物理IDリンクをクリックし、DynamoDBのテーブルページに移動します。</p><p><img src=../images/40-add-resource/dynamodb-stack-resources.png alt="dynamodb stack resources"></p><p><img src=../images/40-add-resource/dynamodb-table-page.png alt="dynamodb table page"></p><p>左メニューの「項目を探索」（または<code>テーブルアイテムの探索</code>ボタン）を開き、実際にデータが書き込まれているか確認してみましょう。</p><p><img src=../images/40-add-resource/dynamodb-item.png alt="dynamodb item"></p><p><code>id</code>・<code>createdAt</code>を持つ項目が見つかりました。

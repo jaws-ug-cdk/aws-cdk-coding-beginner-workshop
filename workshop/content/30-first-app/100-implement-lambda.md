@@ -70,6 +70,12 @@ import * as cdk from 'aws-cdk-lib/core';
 import { IacStack } from '../lib/iac-stack';
 
 const app = new cdk.App();
+/**
+ * スタック削除時のポリシーを「リソースを削除する」に設定する。
+ * DynamoDB などのステートフルなリソースはデフォルトで「リソースを保持する」
+ * ポリシーになっているため、スタックを削除してもリソースが残り続ける。
+ * ワークショップではリソースの後片付けを簡単にするため、一括で削除する設定にしている。
+ */
 cdk.RemovalPolicies.of(app).destroy();
 
 new IacStack(app, 'IacStack-dev');

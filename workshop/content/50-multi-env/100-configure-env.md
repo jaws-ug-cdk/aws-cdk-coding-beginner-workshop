@@ -52,6 +52,12 @@ import { IacStack } from '../lib/iac-stack';
 import { getConfig } from '../lib/config';
 
 const app = new cdk.App();
+/**
+ * スタック削除時のポリシーを「リソースを削除する」に設定する。
+ * DynamoDB などのステートフルなリソースはデフォルトで「リソースを保持する」
+ * ポリシーになっているため、スタックを削除してもリソースが残り続ける。
+ * ワークショップではリソースの後片付けを簡単にするため、一括で削除する設定にしている。
+ */
 cdk.RemovalPolicies.of(app).destroy();
 
 const env: string = app.node.tryGetContext('env') ?? 'dev';
@@ -102,7 +108,7 @@ export class IacStack extends cdk.Stack {
       },
     });
 
-    table.grants.readWriteData(writeFunction);
+    table.grants.writeData(writeFunction);
   }
 }
 ```

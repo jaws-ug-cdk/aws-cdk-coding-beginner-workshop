@@ -38,12 +38,12 @@ export class IacStack extends cdk.Stack {
       },
     });
 
-    table.grants.readWriteData(writeFunction);
+    table.grants.writeData(writeFunction);
   }
 }
 ```
 
-<!-- TODO: table.grants.readWriteData()が具体的に何をしているか（Lambdaの実行ロールにDynamoDBへの読み書きを許可するIAMポリシーを付与する）を説明する -->
+<!-- TODO: table.grants.writeData()が具体的に何をしているか（Lambdaの実行ロールにDynamoDBへの書き込みを許可するIAMポリシーを付与する）を説明する -->
 
 ## 差分を確認する
 
@@ -51,24 +51,16 @@ export class IacStack extends cdk.Stack {
 pnpm exec cdk diff
 ```
 
-権限の差分では、DynamoDBテーブルに対してLambda関数から読み書きできる権限が付与されています。
+権限の差分では、DynamoDBテーブルに対してLambda関数から書き込みできる権限が付与されています。
 
 ```
 IAM Statement Changes
 ┌───┬──────────────────┬────────┬───────────────────────────────────────┬──────────────────────────────┬───────────┐
 │   │ Resource         │ Effect │ Action                                │ Principal                     │ Condition │
 ├───┼──────────────────┼────────┼───────────────────────────────────────┼──────────────────────────────┼───────────┤
-│ + │ ${ItemTable.Arn} │ Allow  │ dynamodb:BatchGetItem                 │ AWS:${Function/ServiceRole}   │           │
-│   │                  │        │ dynamodb:BatchWriteItem               │                               │           │
-│   │                  │        │ dynamodb:ConditionCheckItem           │                               │           │
+│ + │ ${ItemTable.Arn} │ Allow  │ dynamodb:BatchWriteItem               │ AWS:${Function/ServiceRole}   │           │
 │   │                  │        │ dynamodb:DeleteItem                   │                               │           │
-│   │                  │        │ dynamodb:DescribeTable                │                               │           │
-│   │                  │        │ dynamodb:GetItem                      │                               │           │
-│   │                  │        │ dynamodb:GetRecords                   │                               │           │
-│   │                  │        │ dynamodb:GetShardIterator             │                               │           │
 │   │                  │        │ dynamodb:PutItem                      │                               │           │
-│   │                  │        │ dynamodb:Query                        │                               │           │
-│   │                  │        │ dynamodb:Scan                         │                               │           │
 │   │                  │        │ dynamodb:UpdateItem                   │                               │           │
 └───┴──────────────────┴────────┴───────────────────────────────────────┴──────────────────────────────┴───────────┘
 ```
@@ -88,7 +80,7 @@ Resources
         [ ] ]
 ```
 
-- `IAM Statement Changes` … DynamoDBテーブルへの読み書きを許可するIAMポリシーが追加されている
+- `IAM Statement Changes` … DynamoDBテーブルへの書き込みを許可するIAMポリシーが追加されている
 - `[+] AWS::IAM::Policy` … 新しいIAMポリシーが作成される
 - `[~] AWS::Lambda::Function` … Lambda関数に対して新しく作成したポリシーへの依存関係が追加されている
 
